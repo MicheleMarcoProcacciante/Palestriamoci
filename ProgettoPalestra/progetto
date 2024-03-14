@@ -1,0 +1,46 @@
+from classiModello import Athletes
+from flask import Flask, request
+import pymysql
+import json
+
+app = Flask(__name__)
+
+connection = pymysql.connect(
+    host="localhost",
+    user="root",
+    password="root",
+    database="palestriamocidb",
+    port=3306,
+    autocommit=True
+)
+
+cursor = connection.cursor()
+
+@app.route('/athletes')
+def utente():
+    id = request.args.get('id')
+
+    print(type(id))
+    print("select * from athletes where id='%s'" % (id))
+    cursor.execute("select * from athletes where id='%s'" % (id))
+    rows = cursor.fetchall()
+
+    atleti = []
+
+    for row in rows:
+        id = row[0]
+        password = row[1]
+        name = row[2]
+        surname = row[3]
+        email = row[4]
+        date_of_birth = row[5]
+
+        print(row)
+        atleta = Athletes(id, password, name, surname, email, date_of_birth)
+        atleti.append(atleta)
+
+    return json.dumps(atleti, default= vars)
+
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000, debug=True)
