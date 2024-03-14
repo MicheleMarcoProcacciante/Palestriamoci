@@ -7,7 +7,7 @@ use PalestriamociDB;
 
 create table athletes(
  id int primary key auto_increment,
- password varchar(50) not null,
+ password_ varchar(50) not null,
  name_ varchar (255) not null,
  surname varchar (255) not null,
  email varchar (100) unique not null,
@@ -47,6 +47,5 @@ loads varchar (50) not null,
 rest varchar(50) not null,
 duration varchar(50) not null,
 isAerobic tinyint,
-comment varchar (255)
+comment_ varchar (255)
 );
-
