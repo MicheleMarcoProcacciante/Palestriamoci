@@ -84,24 +84,25 @@ values
  	(5, 3, "3","5","30kg","20 minuti","3","ciao5");
 
 /*query per ottenere tutte le cards di un singolo utente
-(endpoint allenamenti svolti)
+(endpoint allenamenti svolti)*/
 
 select name_table,date_
 from trainingCards
 where athletes_fk = 2;
-*/
 
-/*due query, la prima trova la data di una singola scheda.
-la seconda trova tutti gli esercizi con l'id di una singola scheda
-(endpoint visualizzazione_scheda)
 
-select date_
+/*query per trovare la data di una scheda e tutti gli esercizi fatti, dato l'id di una singola scheda
+(endpoint visualizzazione_scheda)*/
+
+select trainingCards.date_, cardsComposition.series, cardsComposition.reps, cardsComposition.loads,
+cardsComposition.rest, cardsComposition.duration, cardsComposition.comment_
 from trainingCards
-where trainingCards_id =1;
-
-select series, reps, loads, rest, duration, comment_
-from cardsComposition
-where trainingCards_fk = 1;
-*/
+	inner join cardsComposition on trainingCards.trainingCards_id = cardsComposition.trainingCards_fk
+where trainingCards.trainingCards_id = 1;
 
 
+/*query per controllare se l'email di registrazione è già esistente
+(endpoint registrazione)*/
+
+select email
+from athletes;
