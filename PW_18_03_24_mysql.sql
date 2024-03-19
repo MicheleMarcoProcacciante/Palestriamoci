@@ -94,10 +94,11 @@ where athletes_fk = 2;
 /*query per trovare la data di una scheda e tutti gli esercizi fatti, dato l'id di una singola scheda
 (endpoint visualizzazione_scheda)*/
 
-select trainingCards.date_, cardsComposition.series, cardsComposition.reps, cardsComposition.loads,
+select exercises.exercise_name, trainingCards.date_, cardsComposition.series, cardsComposition.reps, cardsComposition.loads,
 cardsComposition.rest, cardsComposition.duration, cardsComposition.comment_
-from trainingCards
-	inner join cardsComposition on trainingCards.trainingCards_id = cardsComposition.trainingCards_fk
+from exercises
+	inner join cardsComposition on cardsComposition.exercises_fk = exercises.exercises_id
+	inner join trainingCards on cardsComposition.trainingCards_fk  = trainingCards.trainingCards_id
 where trainingCards.trainingCards_id = 1;
 
 
