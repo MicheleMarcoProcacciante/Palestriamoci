@@ -1,6 +1,7 @@
 # successivamente da importare tutte le classi utilizzate
 
 from athletes import Athletes
+from trainingCards import TrainingCards
 from flask import Flask, request
 import pymysql
 import json
@@ -69,10 +70,11 @@ def showCard():
     schede=[]
 
     for card in cards:
-        scheda = TrainingCard (card[0],card[1],card[2],card[3])
+        scheda = TrainingCards (card[0],card[1],card[2],card[3])
         schede.append(scheda)
 
-    return json.dumps(schede)
+    print(schede)
+    return json.dumps(schede, default=vars)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
