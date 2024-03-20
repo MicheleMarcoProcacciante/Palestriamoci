@@ -7,14 +7,7 @@ import json
 
 app = Flask(__name__)
 
-connection = pymysql.connect(
-    host="localhost",
-    user="root",
-    password="root",
-    database="palestriamocidb",
-    port=3306,
-    autocommit=True
-)
+connection = pymysql.connect(host="localhost", user="root", password="306090", database="palestriamocidb", port=3306, autocommit=True)
 
 cursor = connection.cursor()
 
@@ -38,7 +31,7 @@ def login():
             email = row[2]
 
             atleta = Athletes (id,password,email)
-            atleti.append(atleta.__dict__)
+            atleti.append(atleta)
 
     except:
         # notifica di errore
@@ -48,7 +41,7 @@ def login():
 
 
 @app.route('/cardsComposition', methods = ['GET'])
-def login():
+def showCardComposition():
 
     id = request.args.get('athletes_id')
     cursor.execute("select exercises.exercise_name, trainingCards.date_, cardsComposition.series, cardsComposition.reps," +
