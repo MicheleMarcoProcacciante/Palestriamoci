@@ -59,20 +59,23 @@ def login():
     risultato = cursor.fetchall()
 
     # iniziato da login, codice sotto va modificato
-    atleti = []
 
-    for row in risultato:
-        id = row[0]
-        password = row[1]
-        email = row[2]
 
-        atleta = Athletes (id,password,email)
-        atleti.append(atleta.__dict__)
+
+# fare endpoint per visualizzazione data/nome delle schede (se c'è tempo anche registrazione)
+    
+@app.route('/Showcard')
+def showCard():
+
+    cursor.execute("select trainingCards.name_table, trainingCards.date_  from TrainingCards")
+    risultato = cursor.fetchall()
+
+    scheda = TrainingCard (id,id_athletes,name,date)
+    schede.append(scheda.__dict__)
 
     return json.dumps(risultato)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
+    
 
-
-# fare endpoint per visualizzazione data/nome delle schede (se c'è tempo anche registrazione)
