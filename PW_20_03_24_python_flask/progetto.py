@@ -67,13 +67,19 @@ def login():
 @app.route('/Showcard')
 def showCard():
 
-    cursor.execute("select trainingCards.name_table, trainingCards.date_  from TrainingCards")
-    risultato = cursor.fetchall()
+    id = request.args.get('athletes_id')
 
-    scheda = TrainingCard (id,id_athletes,name,date)
-    schede.append(scheda.__dict__)
 
-    return json.dumps(risultato)
+    cursor.execute("select * from TrainingCards where athletes_fk = '%s'" % (id))
+    cards = cursor.fetchall()
+
+    schede=[]
+
+    for card in cards:
+        scheda = TrainingCard (card[0],card[1],card[2],card[3])
+        schede.append(scheda)
+
+    return json.dumps(schede)
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
