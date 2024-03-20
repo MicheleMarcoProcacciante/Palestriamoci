@@ -6,7 +6,6 @@ class Athletes:
     email = None
     date_of_birth = None
     
-
     def __init__(self, id, p, n, s, e, d):
         self.id = id
         self.password = p
