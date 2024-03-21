@@ -41,6 +41,7 @@ def login():
 
 
 
+# da controllare questo endpoint
 @app.route('/cardsComposition', methods = ['GET'])
 def showCardComposition():
 
@@ -50,13 +51,24 @@ def showCardComposition():
                     "from exercises inner join cardsComposition on cardsComposition.exercises_fk = exercises.exercises_id" +
                     "inner join trainingCards on cardsComposition.trainingCards_fk  = trainingCards.trainingCards_id" +
                     "where trainingCards.trainingCards_id = '%s'" % (id))
-    risultato = cursor.fetchall()
+    programms = cursor.fetchall()
 
-    # iniziato da login, codice sotto va modificato
+    dayprogramms =[]
+
+
+    for programm in programms:
+        dayprogramm = TrainingCards (programm[0],programm[1],programm[2],programm[3],programm[4],programm[5],programm[6],programm[7],)
+        dayprogramms.append(dayprogramm)
+
+    print(dayprogramm)
+    return json.dumps(dayprogramm, default=vars)
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000, debug=True)
 
 
 
-# fare endpoint per visualizzazione data/nome delle schede (se c'è tempo anche registrazione)
+#endpoint visualizzazione nome scheda con data per id
     
 @app.route('/Showcard')
 def showCard():
