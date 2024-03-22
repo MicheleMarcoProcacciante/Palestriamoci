@@ -73,93 +73,12 @@ body {
 [class*=__container] {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 3.25rem;
+  padding: 0 1.25rem;
 }
-
-.header {
-  padding: 32px 32px 32px 0;
-}
-.menu {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  font-size: 24px;
-}
-.menu__logo {
-  margin-right: 75px;
-}
-.menu__items {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 60px;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-}
-.menu__item {
-  position: relative;
-}
-.menu__burger {
-  -ms-flex-item-align: center;
-      align-self: center;
-}
-
-.logo img {
-  max-width: 100px;
-}
-
-.block-main {
-  position: relative;
-}
-.block-main__container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding: 200px 10px 170px 10px;
-}
-.block-main__buttons {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 25px;
-}
-.block-main__image {
-  margin-top: -350px;
-  z-index: -1;
-}
-
-.block-main::after {
-  content: "Exercise";
-  font-family: "Josefin Sans";
-  font-weight: 900;
-  font-size: 200px;
-  bottom: 0;
-  left: -30px;
-  position: absolute;
-  line-height: 170%;
-  z-index: -2;
-  color: hsla(0, 100%, 57%, 0.05);
-}
-
-.block-main::before {
-  content: url(/img/ico/Dots.svg);
-  bottom: 100px;
-  right: 40px;
-  position: absolute;
-}
-
-.block-main__container::before {
-  content: url(/img/main/quadrati.png);
-  top: 100px;
-  left: -150px;
-  position: absolute;
+@media (min-width: 600px) {
+  [class*=__container] {
+    padding: 0 3.25rem;
+  }
 }
 
 .titles-main {
@@ -171,7 +90,11 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 40px;
-  max-width: 472px;
+}
+@media (min-width: 1150px) {
+  .titles-main {
+    max-width: 472px;
+  }
 }
 .titles-main__subTitle {
   color: #FF2625;
@@ -180,19 +103,34 @@ body {
 }
 .titles-main__title {
   font-family: "Josefin Sans";
-  font-size: 80px;
+  font-size: 40px;
   font-weight: 700;
   line-height: 110%;
 }
+@media (max-width: 1150px) {
+  .titles-main__title {
+    text-align: center;
+  }
+}
+@media (min-width: 600px) {
+  .titles-main__title {
+    font-size: 80px;
+  }
+}
+@media (min-width: 400px) {
+  .titles-main__title {
+    font-size: 60px;
+  }
+}
 .titles-main__text {
   font-weight: 100;
+  text-align: justify;
 }
 
 .btn {
-  max-width: 200px;
-  max-height: 58px;
+  width: 400px;
   border-radius: 25px;
-  padding: 20px 50px;
+  padding: 20px 40px;
   font-weight: 600;
   font-size: 18px;
   cursor: pointer;
@@ -201,6 +139,18 @@ body {
   outline: none;
   -webkit-transition: 1s ease-in-out;
   transition: 1s ease-in-out;
+}
+@media (max-width: 500px) {
+  .btn {
+    max-width: 100%;
+  }
+}
+.btn__red {
+  background-color: #FF2625;
+  color: white;
+}
+.btn__white {
+  border: #91C9FF 1px solid;
 }
 
 svg {
@@ -232,10 +182,161 @@ svg {
   font-weight: 100;
 }
 
-.btn__red {
-  background-color: #FF2625;
-  color: white;
+.header {
+  padding: 32px 32px 32px 0;
 }
-.btn__white {
-  border: #91C9FF 1px solid;
+@media (max-width: 900px) {
+  .header {
+    padding: 32px 0px 32px 0;
+  }
+}
+
+.menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 24px;
+}
+@media (max-width: 900px) {
+  .menu {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+.menu__logo {
+  margin-right: 75px;
+}
+.menu__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 60px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+@media (max-width: 900px) {
+  .menu__items {
+    display: none;
+  }
+}
+.menu__item {
+  position: relative;
+}
+.menu__burger {
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.logo img {
+  max-width: 100px;
+}
+
+.block-main {
+  position: relative;
+}
+.block-main__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 80px 10px 170px 10px;
+  gap: 50px;
+}
+@media (max-width: 1150px) {
+  .block-main__container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 0px 10px 150px 10px;
+  }
+}
+.block-main__buttons {
+  max-width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 25px;
+}
+@media (max-width: 1150px) {
+  .block-main__buttons {
+    -ms-flex-item-align: center;
+        align-self: center;
+  }
+}
+@media (max-width: 500px) {
+  .block-main__buttons {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+@media (min-width: 1150px) {
+  .block-main__image {
+    position: relative;
+    padding-top: 56.25%;
+    width: 100%;
+  }
+}
+.block-main__image img {
+  width: 100%;
+}
+@media (min-width: 1150px) {
+  .block-main__image img {
+    position: absolute;
+    bottom: -50px;
+    left: 50px;
+    width: 100%;
+    height: auto;
+    z-index: -2;
+  }
+}
+
+.block-main__image::after {
+  content: url("../img/ico/Dots.svg");
+  bottom: -120px;
+  right: 0px;
+  position: absolute;
+}
+@media (max-width: 1150px) {
+  .block-main__image::after {
+    bottom: 75px;
+    right: 50px;
+  }
+}
+@media (max-width: 600px) {
+  .block-main__image::after {
+    content: "";
+  }
+}
+
+.block-main__container::before {
+  content: url("../img/main/quadrati.png");
+  top: 0px;
+  left: -150px;
+  position: absolute;
+}
+
+@media (min-width: 800px) {
+  .block-main::after {
+    content: "Exercise";
+    font-family: "Josefin Sans";
+    font-weight: 900;
+    font-size: 200px;
+    bottom: -50px;
+    left: -30px;
+    position: absolute;
+    line-height: 170%;
+    z-index: -2;
+    max-width: 100%;
+    color: hsla(0, 100%, 57%, 0.05);
+  }
 }

@@ -1,6 +1,6 @@
 @import 'null';
 @import 'fonts';
-// ==========================================
+// ==================A========================
 
 a {
     text-decoration: none;
@@ -15,7 +15,7 @@ a:hover {
     background-size: 100% 2px;
 }
 
-// ==========================================
+// ==================BODY========================
 
 body {
     font-family: "Alegreya";
@@ -31,119 +31,24 @@ body {
 [class*=__container] {
     max-width: 1440px;
     margin: 0 auto;
-    padding: 0 3.25rem;
-}
+    padding: 0 1.25rem;
 
-// ==========================================
-
-.header {
-    padding: 32px 32px 32px 0;
-
-    // .header__menu
-    &__menu {}
-}
-
-.menu {
-    display: flex;
-    font-size: 24px;
-
-    // .menu__logo
-    &__logo {
-        margin-right: 75px;
-    }
-
-    // .menu__items
-    &__items {
-        display: flex;
-        align-items: center;
-        gap: 60px;
-        flex-grow: 1;
-        // flex-shrink: 1;
-    }
-
-    // .menu__item
-    &__item {
-        position: relative;
-    }
-
-    // .menu__burger
-    &__burger {
-        align-self: center;
+    @media (min-width: 600px) {
+        padding: 0 3.25rem;
     }
 }
 
-
-.logo img {
-    max-width: 100px;
-}
-
-.main {
-
-    // .main__block
-    &__block {}
-}
-
-
-
-.block-main {
-    position: relative;
-
-    // .block-main__container
-    &__container {
-        display: flex;
-        justify-content: space-between;
-        padding: 200px 10px 170px 10px;
-
-    }
-
-    // .block-main__titles
-    &__titles {}
-
-    // .block-main__buttons
-    &__buttons {
-        display: flex;
-        gap: 25px;
-    }
-
-    // .block-main__image
-    &__image {
-        margin-top: -350px;
-        z-index: -1;
-    }
-}
-
-.block-main::after {
-    content: 'Exercise';
-    font-family: "Josefin Sans";
-    font-weight: 900;
-    font-size: 200px;
-    bottom: 0;
-    left: -30px;
-    position: absolute;
-    line-height: 170%;
-    z-index: -2;
-    color: hsla(0, 100%, 57%, 0.05);
-}
-
-.block-main::before {
-    content: url(/img/ico/Dots.svg);
-    bottom: 100px;
-    right: 40px;
-    position: absolute;
-}
-
-.block-main__container::before {
-    content: url(/img/main/quadrati.png);
-    top: 100px;
-    left: -150px;
-    position: absolute;
-}
+// ==================TITLES========================
 
 .titles-main {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    max-width: 472px;
+
+
+    @media (min-width: 1150px) {
+        max-width: 472px;
+    }
 
     // .titles-main__subTitle
     &__subTitle {
@@ -156,22 +61,36 @@ body {
     // .titles-main__title
     &__title {
         font-family: "Josefin Sans";
-        font-size: 80px;
+        font-size: 40px;
         font-weight: 700;
         line-height: 110%;
+
+        @media (max-width: 1150px) {
+            text-align: center;
+        }
+
+        @media (min-width: 600px) {
+            font-size: 80px;
+        }
+
+        @media (min-width: 400px) {
+            font-size: 60px;
+        }
     }
 
     // .titles-main__text
     &__text {
         font-weight: 100;
+        text-align: justify;
     }
 }
 
+// =================BUTTONS=========================
+
 .btn {
-    max-width: 200px;
-    max-height: 58px;
+    width: 400px;
     border-radius: 25px;
-    padding: 20px 50px;
+    padding: 20px 40px;
     font-weight: 600;
     font-size: 18px;
 
@@ -180,6 +99,22 @@ body {
     border: 1px solid #91C9FF;
     outline: none;
     transition: 1s ease-in-out;
+
+    @media (max-width: 500px) {
+        max-width: 100%;
+    }
+
+
+    // .btn__red
+    &__red {
+        background-color: #FF2625;
+        color: white;
+    }
+
+    // .btn__white
+    &__white {
+        border: #91C9FF 1px solid;
+    }
 }
 
 svg {
@@ -206,24 +141,175 @@ svg {
 }
 
 .btn span {
-
     font-size: 18px;
     font-weight: 100;
 }
 
-.btn {
 
-    // .btn__red
-    &__red {
-        background-color: #FF2625;
-        color: white;
-    }
+// ================Header==========================
 
-    // .btn__white
-    &__white {
-        border: #91C9FF 1px solid;
+.header {
+    padding: 32px 32px 32px 0;
 
+    // .header__menu
+    &__menu {}
+
+    @media (max-width: 900px) {
+        padding: 32px 0px 32px 0;
     }
 }
+
+.menu {
+
+    display: flex;
+    font-size: 24px;
+
+    @media (max-width: 900px) {
+        justify-content: space-between;
+    }
+
+    // .menu__logo
+    &__logo {
+        margin-right: 75px;
+    }
+
+    // .menu__items
+    &__items {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+        flex-grow: 1;
+
+        @media (max-width: 900px) {
+            display: none;
+        }
+    }
+
+    // .menu__item
+    &__item {
+        position: relative;
+    }
+
+    // .menu__burger
+    &__burger {
+        align-self: center;
+    }
+}
+
+
+.logo img {
+    max-width: 100px;
+}
+
+
+// ================MAIN==========================
+
+.main {
+
+    // .main__block
+    &__block {}
+}
+
+.block-main {
+    position: relative;
+
+    // .block-main__container
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        padding: 80px 10px 170px 10px;
+        gap: 50px;
+
+        @media (max-width: 1150px) {
+            flex-direction: column;
+            padding: 0px 10px 150px 10px;
+        }
+
+    }
+
+    // .block-main__titles
+    &__titles {}
+
+    // .block-main__buttons
+    &__buttons {
+        max-width: 100%;
+        display: flex;
+        gap: 25px;
+
+        @media (max-width: 1150px) {
+            align-self: center;
+        }
+
+        @media (max-width: 500px) {
+            flex-direction: column;
+        }
+
+    }
+
+    // .block-main__image
+    &__image {
+
+        @media (min-width: 1150px) {
+            position: relative;
+            padding-top: 56.25%;
+            width: 100%;
+        }
+
+        img {
+            width: 100%;
+
+            @media (min-width: 1150px) {
+                position: absolute;
+                bottom: -50px;
+                left: 50px;
+                width: 100%;
+                height: auto;
+                z-index: -2;
+            }
+        }
+    }
+
+}
+
+.block-main__image::after {
+    content: url("../img/ico/Dots.svg");
+    bottom: -120px;
+    right: 0px;
+    position: absolute;
+
+    @media (max-width: 1150px) {
+        bottom: 75px;
+        right: 50px;
+    }
+
+    @media (max-width: 600px) {
+        content: "";
+    }
+}
+
+.block-main__container::before {
+    content: url("../img/main/quadrati.png");
+    top: 0px;
+    left: -150px;
+    position: absolute;
+}
+
+.block-main::after {
+
+    @media (min-width: 800px) {
+        content: 'Exercise';
+        font-family: "Josefin Sans";
+        font-weight: 900;
+        font-size: 200px;
+        bottom: -50px;
+        left: -30px;
+        position: absolute;
+        line-height: 170%;
+        z-index: -2;
+        max-width: 100%;
+        color: hsla(0, 100%, 57%, 0.05);
+    }
+}
+
 
 .footer {}
