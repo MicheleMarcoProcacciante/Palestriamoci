@@ -1,82 +1,72 @@
-# successivamente da importare tutte le classi utilizzate
-
 from athletes import Athletes
 from trainingCards import TrainingCards
+from cardsComposition import CardsComposition
 from flask import Flask, request
 import pymysql
 import json
 
 app = Flask(__name__)
 
-connection = pymysql.connect(host="localhost", user="root", password="306090", database="palestriamocidb", port=3306, autocommit=True)
+connection = pymysql.connect(host="localhost", user="root", password="root", database="palestriamocidb", port=3306, autocommit=True)
 
 cursor = connection.cursor()
 
 # POST probabilmente è meglio per evitare di avere dati sull'url. capire come farlo.
 @app.route('/login', methods = ['GET'])
 def login():
-    id = request.args.get('athletes_id')
     email = request.args.get('email')
     password = request.args.get('password_')
 
+    atleta = None
+
     try:
-        cursor.execute("select athletes_id,email,password_ from athletes where email = %s AND password = %s", (email,password))
-        risultato = cursor.fetchall()
-        # chiedere potenziali alternative migliori al fetchall
-        atleti = []
+        sql = "select * from athletes where email = '%s' AND password_ = '%s'" % (email,password)
+        print(sql)
+        cursor.execute(sql)
+        row = cursor.fetchone()
 
-        for row in risultato:
-
-            id = row[0]
-            password = row[1]
-            email = row[2]
-
-            atleta = Athletes (id,password,email)
-            atleti.append(atleta)
-
+        atleta = Athletes (row[0],row[1],row[2],row[3],row[4],row[5])
+        print(row, atleta)
     except:
         # notifica di errore
         print ("Account non trovato")
-    return json.dumps(risultato)
+    return json.dumps(atleta, default=vars)
 
 
 
-# da controllare questo endpoint
+# da controllare questo endpoint e primo. data ritorna "data" come dato (forse str(data) in classe)
 @app.route('/cardsComposition', methods = ['GET'])
 def showCardComposition():
-
-    id = request.args.get('athletes_id')
-    cursor.execute("select exercises.exercise_name, trainingCards.date_, cardsComposition.series, cardsComposition.reps," +
-                    "cardsComposition.loads,cardsComposition.rest, cardsComposition.duration, cardsComposition.comment_" +
-                    "from exercises inner join cardsComposition on cardsComposition.exercises_fk = exercises.exercises_id" +
-                    "inner join trainingCards on cardsComposition.trainingCards_fk  = trainingCards.trainingCards_id" +
-                    "where trainingCards.trainingCards_id = '%s'" % (id))
-    programms = cursor.fetchall()
-
-    dayprogramms =[]
-
-
-    for programm in programms:
-        dayprogramm = TrainingCards (programm[0],programm[1],programm[2],programm[3],programm[4],programm[5],programm[6],programm[7],)
-        dayprogramms.append(dayprogramm)
-
-    print(dayprogramm)
-    return json.dumps(dayprogramm, default=vars)
-
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000, debug=True)
-
-
-
-#endpoint visualizzazione nome scheda con data per id
     
-@app.route('/Showcard')
+    id = request.args.get('trainingCards_id')
+    sql = """select exercises.exercise_name, trainingCards.date_, cardsComposition.series, cardsComposition.reps,
+                cardsComposition.loads, cardsComposition.rest, cardsComposition.duration, cardsComposition.comment_
+                from exercises 
+                    inner join cardsComposition on cardsComposition.exercises_fk = exercises.exercises_id
+                    inner join trainingCards on cardsComposition.trainingCards_fk = trainingCards.trainingCards_id
+                where trainingCards.trainingCards_id = '%s'""" % (id)
+
+    print (sql)
+    cursor.execute(sql)
+    risultatoQuery = cursor.fetchall()
+
+    allenamentiGiornata = []
+
+    for riga in risultatoQuery:
+        allenamentoGiornata = CardsComposition (riga[0],riga[1],riga[2],riga[3],riga[4],riga[5],riga[6],riga[7])
+        allenamentiGiornata.append(allenamentoGiornata)
+
+    print(allenamentiGiornata)
+    return json.dumps(allenamentiGiornata, default=vars)
+
+    
+@app.route('/showcards', methods = ['GET'])
 def showCard():
 
     id = request.args.get('athletes_id')
 
-
-    cursor.execute("select * from TrainingCards where athletes_fk = '%s'" % (id))
+    sql = ("select * from TrainingCards where athletes_fk = '%s'" % (id))
+    cursor.execute(sql)
     cards = cursor.fetchall()
 
     schede=[]
@@ -90,5 +80,3 @@ def showCard():
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
-    
-
