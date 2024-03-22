@@ -1,0 +1,225 @@
+@import 'null';
+@import 'fonts';
+// ==========================================
+
+a {
+    text-decoration: none;
+    background-image: linear-gradient(#FF2625, #FF2625);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size .3s;
+}
+
+a:hover {
+    background-size: 100% 2px;
+}
+
+// ==========================================
+
+body {
+    font-family: "Alegreya";
+    font-size: 22px;
+}
+
+.wrapper {
+
+    // .wrapper__container
+    &__container {}
+}
+
+[class*=__container] {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 3.25rem;
+}
+
+// ==========================================
+
+.header {
+    padding: 32px;
+
+    // .header__menu
+    &__menu {}
+}
+
+.menu {
+    display: flex;
+    font-size: 24px;
+
+    // .menu__logo
+    &__logo {
+        margin-right: 125px;
+    }
+
+    // .menu__items
+    &__items {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+        flex-grow: 1;
+        // flex-shrink: 1;
+    }
+
+    // .menu__item
+    &__item {
+        position: relative;
+    }
+
+    // .menu__burger
+    &__burger {}
+}
+
+
+.logo {}
+
+.main {
+
+    // .main__block
+    &__block {}
+}
+
+
+
+.block-main {
+    position: relative;
+
+    // .block-main__container
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        padding: 200px 10px 170px 10px;
+
+    }
+
+    // .block-main__titles
+    &__titles {}
+
+    // .block-main__buttons
+    &__buttons {
+        display: flex;
+        gap: 25px;
+    }
+
+    // .block-main__image
+    &__image {
+        margin-top: -350px;
+        z-index: -1;
+    }
+}
+
+.block-main::after {
+    content: 'Exercise';
+    font-family: "Josefin Sans";
+    font-weight: 900;
+    font-size: 200px;
+    bottom: 0;
+    left: -30px;
+    position: absolute;
+    line-height: 170%;
+    z-index: -2;
+    color: hsla(0, 100%, 57%, 0.05);
+}
+
+.block-main::before {
+    content: url(/img/ico/Dots.svg);
+    bottom: 100px;
+    right: 40px;
+    position: absolute;
+}
+
+.block-main__container::before {
+    content: url(/img/main/quadrati.png);
+    top: 100px;
+    left: -150px;
+    position: absolute;
+}
+
+.titles-main {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 472px;
+
+    // .titles-main__subTitle
+    &__subTitle {
+        color: #FF2625;
+        font-size: 26px;
+        font-weight: 600;
+
+    }
+
+    // .titles-main__title
+    &__title {
+        font-family: "Josefin Sans";
+        font-size: 80px;
+        font-weight: 700;
+        line-height: 110%;
+    }
+
+    // .titles-main__text
+    &__text {
+        font-weight: 100;
+    }
+}
+
+.btn {
+    max-width: 200px;
+    max-height: 58px;
+    border-radius: 25px;
+    padding: 20px 50px;
+    font-weight: 600;
+    font-size: 18px;
+
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid #91C9FF;
+    outline: none;
+    transition: 1s ease-in-out;
+}
+
+svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    fill: none;
+    stroke: #fff;
+    stroke-dasharray: 150 480;
+    stroke-dashoffset: 150;
+    transition: 1s ease-in-out;
+}
+
+.btn:hover {
+    transition: 1s ease-in-out;
+    background: #4F95DA;
+    color: white;
+    border: 1px solid #91C9FF;
+}
+
+
+.btn:hover svg {
+    stroke-dashoffset: -480;
+}
+
+.btn span {
+
+    font-size: 18px;
+    font-weight: 100;
+}
+
+.btn {
+
+    // .btn__red
+    &__red {
+        background-color: #FF2625;
+        color: white;
+    }
+
+    // .btn__white
+    &__white {
+        border: #91C9FF 1px solid;
+
+    }
+}
+
+.footer {}
