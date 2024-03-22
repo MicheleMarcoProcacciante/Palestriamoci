@@ -77,7 +77,7 @@ body {
 }
 
 .header {
-  padding: 32px;
+  padding: 32px 32px 32px 0;
 }
 .menu {
   display: -webkit-box;
@@ -86,7 +86,7 @@ body {
   font-size: 24px;
 }
 .menu__logo {
-  margin-right: 125px;
+  margin-right: 75px;
 }
 .menu__items {
   display: -webkit-box;
@@ -103,6 +103,15 @@ body {
 .menu__item {
   position: relative;
 }
+.menu__burger {
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.logo img {
+  max-width: 100px;
+}
+
 .block-main {
   position: relative;
 }
