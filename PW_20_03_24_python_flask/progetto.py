@@ -1,7 +1,7 @@
 from athletes import Athletes
 from trainingCards import TrainingCards
 from cardsComposition import CardsComposition
-from flask import Flask, request
+from flask import Flask, request,   render_template, redirect, url_for, session
 import pymysql
 import json
 
@@ -9,11 +9,13 @@ app = Flask(__name__)
 
 connection = pymysql.connect(host="localhost", user="root", password="root", database="palestriamocidb", port=3306, autocommit=True)
 
+
 cursor = connection.cursor()
 
 # POST probabilmente è meglio per evitare di avere dati sull'url. capire come farlo.
 @app.route('/login', methods = ['GET'])
 def login():
+    # forms.get
     email = request.args.get('email')
     password = request.args.get('password_')
 
@@ -46,17 +48,15 @@ def showCardComposition():
                     inner join trainingCards on cardsComposition.trainingCards_fk = trainingCards.trainingCards_id
                 where trainingCards.trainingCards_id = '%s'""" % (id)
 
-    print (sql)
     cursor.execute(sql)
-    risultatoQuery = cursor.fetchall()
+    righe = cursor.fetchall()
 
     allenamentiGiornata = []
 
-    for riga in risultatoQuery:
-        allenamentoGiornata = CardsComposition (riga[0],riga[1],riga[2],riga[3],riga[4],riga[5],riga[6],riga[7])
+    for elemento in righe:
+        allenamentoGiornata = CardsComposition (elemento[0],elemento[1],elemento[2],elemento[3],elemento[4],elemento[5],elemento[6],elemento[7])
         allenamentiGiornata.append(allenamentoGiornata)
 
-    print(allenamentiGiornata)
     return json.dumps(allenamentiGiornata, default=vars)
 
     
@@ -77,6 +77,32 @@ def showCard():
 
     print(schede)
     return json.dumps(schede, default=vars)
+
+
+
+@app.route('/register', methods = ['POST'])
+def register():
+    # form.get
+
+    # password = request.form.get('password_')
+
+    password = request.form['password']
+    name = request.form['name']
+    surname = request.form['surname']
+    email = request.form['email']
+    date_of_birth = request.form['date_of_birth']
+
+    # cur = cursor.connection.cursor()
+    cursor.execute(f"""insert into athletes (password_, name_, surname, email, date_of_birth) values ('{password}', '{name}',
+                '{surname}','{email}','{date_of_birth}')""")
+    cursor.connection.commit()
+    cursor.close()
+
+    # return redirect (url_for("login"))
+
+# return render_template("register.html")
+
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
