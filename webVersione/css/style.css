@@ -61,12 +61,44 @@ a {
   transition: background-size 0.3s;
 }
 
-a:hover {
+.link:hover {
   background-size: 100% 2px;
 }
 
 .link-red {
   color: #FF2625;
+}
+
+.logo {
+  width: 100px;
+  /* Set the width of the logo container */
+  display: block;
+  /* To center the img within the logo container if needed */
+  overflow: hidden;
+  /* Ensures the img doesn't break out of the container */
+  border-radius: 50%;
+  /* If you want the logo container to be circular */
+  position: relative;
+  /* Set a stacking context for the pseudo element */
+}
+
+.logo img {
+  width: 100%;
+  height: auto;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+}
+
+.logo img:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 body {
@@ -133,9 +165,9 @@ body {
 }
 
 .btn {
-  width: 400px;
-  border-radius: 25px;
-  padding: 20px 40px;
+  position: relative;
+  width: 180px;
+  padding: 20px 30px;
   font-weight: 600;
   font-size: 18px;
   cursor: pointer;
@@ -161,7 +193,7 @@ body {
 svg {
   position: absolute;
   left: 0;
-  top: 0;
+  bottom: 0;
   fill: none;
   stroke: #fff;
   stroke-dasharray: 150 480;
@@ -236,10 +268,6 @@ svg {
 .menu__burger {
   -ms-flex-item-align: center;
       align-self: center;
-}
-
-.logo img {
-  max-width: 100px;
 }
 
 .block-main {
@@ -359,7 +387,12 @@ svg {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 40px 10px 170px 10px;
+  padding: 40px 10px 120px 10px;
+}
+@media (max-width: 900px) {
+  .block-StepByStep__container {
+    padding: 40px 10px 90px 10px;
+  }
 }
 .block-StepByStep__titles {
   -ms-flex-item-align: center;
@@ -373,6 +406,11 @@ svg {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 50px;
+}
+@media (max-width: 900px) {
+  .cards-services {
+    grid-template-columns: 1fr;
+  }
 }
 
 .card-service {
@@ -389,6 +427,11 @@ svg {
           flex-direction: column;
   gap: 20px;
 }
+@media (max-width: 400px) {
+  .card-service {
+    padding: 35px 15px;
+  }
+}
 .card-service__image {
   text-align: center;
 }
@@ -403,4 +446,99 @@ svg {
 }
 .card-service__text {
   text-align: justify;
+}
+
+.block-benefits__container {
+  padding: 40px 10px 170px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 50px;
+}
+
+.banefit-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
+}
+@media (max-width: 900px) {
+  .banefit-card {
+    grid-template-columns: 1fr;
+  }
+}
+.banefit-card__image {
+  text-align: center;
+}
+.banefit-card__image img {
+  max-width: 100%;
+}
+.banefit-card__titles {
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+.banefit-card__titles .titles-main__subTitle {
+  font-size: 26px;
+}
+@media (max-width: 1150px) {
+  .banefit-card__titles .titles-main__subTitle {
+    text-align: center;
+  }
+}
+.banefit-card__titles .titles-main__title {
+  font-size: 44px;
+}
+@media (max-width: 900px) {
+  .banefit-card__titles .titles-main__title {
+    font-size: 38px;
+  }
+}
+@media (max-width: 400px) {
+  .banefit-card__titles .titles-main__title {
+    font-size: 28px;
+  }
+}
+
+.brRadiusBottomRight img {
+  border-bottom-right-radius: 100px;
+}
+
+.brRadiusBottomLeft img {
+  border-bottom-left-radius: 100px;
+}
+
+.brRadiusTopRight img {
+  border-top-right-radius: 100px;
+}
+
+.brRadiusTopLeft img {
+  border-top-left-radius: 100px;
+}
+
+.cntChangeBlock .left {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+@media (max-width: 900px) {
+  .cntChangeBlock .left {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+}
+.cntChangeBlock .right {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+@media (max-width: 900px) {
+  .cntChangeBlock .right {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
 }

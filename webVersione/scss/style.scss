@@ -11,13 +11,40 @@ a {
     transition: background-size .3s;
 }
 
-a:hover {
+.link:hover {
     background-size: 100% 2px;
 }
 
 .link-red {
     color: #FF2625;
 }
+
+// ==================LOGO========================
+.logo {
+    width: 100px;
+    /* Set the width of the logo container */
+    display: block;
+    /* To center the img within the logo container if needed */
+    overflow: hidden;
+    /* Ensures the img doesn't break out of the container */
+    border-radius: 50%;
+    /* If you want the logo container to be circular */
+    position: relative;
+    /* Set a stacking context for the pseudo element */
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    transform: scale(1);
+}
+
+.logo img:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
 
 // ==================BODY========================
 
@@ -93,9 +120,9 @@ body {
 // =================BUTTONS=========================
 
 .btn {
-    width: 400px;
-    border-radius: 25px;
-    padding: 20px 40px;
+    position: relative;
+    width: 180px;
+    padding: 20px 30px;
     font-weight: 600;
     font-size: 18px;
 
@@ -125,8 +152,10 @@ body {
 svg {
     position: absolute;
     left: 0;
-    top: 0;
+    bottom: 0;
     fill: none;
+    // width: 100%;
+    // background-color: #FF2625;
     stroke: #fff;
     stroke-dasharray: 150 480;
     stroke-dashoffset: 150;
@@ -203,9 +232,7 @@ svg {
 }
 
 
-.logo img {
-    max-width: 100px;
-}
+
 
 
 // ================MAIN==========================
@@ -335,7 +362,11 @@ svg {
     &__container {
         display: flex;
         flex-direction: column;
-        padding: 40px 10px 170px 10px;
+        padding: 40px 10px 120px 10px;
+
+        @media (max-width: 900px) {
+            padding: 40px 10px 90px 10px;
+        }
     }
 
     // .block-StepByStep__titles
@@ -367,6 +398,10 @@ svg {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+    }
 }
 
 .card-service {
@@ -375,6 +410,10 @@ svg {
     border-radius: 5px 5px 5px 35px;
     border: #ff25258a 1px solid;
     padding: 65px 35px;
+
+    @media (max-width: 400px) {
+        padding: 35px 15px;
+    }
 
     display: flex;
     flex-direction: column;
@@ -405,6 +444,113 @@ svg {
     }
 }
 
+// ================Section benefits==========================
+
+.main {
+
+    // .main__benefits
+    &__benefits {}
+}
+
+.block-benefits {
+
+    // .block-benefits__container
+    &__container {
+        padding: 40px 10px 170px 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+    }
+}
+
+
+.banefit-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 90px;
+
+    @media (max-width: 900px) {
+        grid-template-columns: 1fr;
+    }
+
+    // .banefit-card__image
+    &__image {
+        text-align: center;
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    // .banefit-card__titles
+    &__titles {
+        align-self: center;
+
+        .titles-main__subTitle {
+            font-size: 26px;
+
+            @media (max-width: 1150px) {
+                text-align: center;
+            }
+        }
+
+        .titles-main__title {
+            font-size: 44px;
+
+
+            @media (max-width: 900px) {
+                font-size: 38px;
+            }
+
+            @media (max-width: 400px) {
+                font-size: 28px;
+            }
+        }
+    }
+}
+
+.brRadiusBottomRight {
+    img {
+        border-bottom-right-radius: 100px;
+    }
+}
+
+.brRadiusBottomLeft {
+    img {
+        border-bottom-left-radius: 100px;
+    }
+}
+
+.brRadiusTopRight {
+    img {
+        border-top-right-radius: 100px;
+    }
+}
+
+.brRadiusTopLeft {
+    img {
+        border-top-left-radius: 100px;
+    }
+}
+
+.cntChangeBlock {
+
+    .left {
+        order: 1;
+
+        @media (max-width: 900px) {
+            order: 2;
+        }
+    }
+
+    .right {
+        order: 2;
+
+        @media (max-width: 900px) {
+            order: 1;
+        }
+    }
+}
 
 
 // ================footer==========================
