@@ -69,3 +69,9 @@ ul {
       align-self: center;
   width: 100%;
 }
+
+.col2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}

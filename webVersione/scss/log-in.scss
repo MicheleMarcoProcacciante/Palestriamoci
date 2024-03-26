@@ -80,3 +80,9 @@ ul {
 }
 
 .mb-3 {}
+
+.col2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}

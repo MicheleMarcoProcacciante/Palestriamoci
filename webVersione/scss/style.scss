@@ -186,7 +186,13 @@ svg {
 // ================Header==========================
 
 .header {
-    padding: 0px 32px 0px 0;
+
+    // .header__container
+    &__container {
+        padding: 0 0;
+    }
+
+
     // margin-bottom: 50px;
     background-color: #FFF3F4;
 
@@ -194,7 +200,7 @@ svg {
     &__menu {}
 
     @media (max-width: 900px) {
-        padding: 32px 0px 32px 0;
+        padding: 0px 0;
     }
 }
 
@@ -582,22 +588,25 @@ svg {
 // ================footer==========================
 .footer {}
 
+
+
 .footer {
     background-color: #FFF3F4;
-    padding: 25px 0;
+    padding: 10px 0 25px 0;
     text-align: center;
 
     // .footer__container
     &__container {
         padding: 0;
         display: grid;
-        grid-template-columns: 100px 1fr;
+        grid-template-columns: 150px 1fr;
         align-items: center;
     }
 
     // .footer__logo
     &__logo {
-        grid-row: 1 / span 2;
+        // align-self: center;
+        text-align: center;
         width: 100px;
         display: block;
         overflow: hidden;
@@ -615,4 +624,27 @@ svg {
     &__bottomText {
         font-size: 14px;
     }
+}
+
+.social-contacts {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+
+    a {
+        display: block;
+
+        img {
+            width: 30px;
+        }
+    }
+}
+
+.footer__icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-row: 1 / span 2;
 }
