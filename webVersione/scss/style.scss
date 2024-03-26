@@ -478,7 +478,7 @@ svg {
 
     // .block-benefits__container
     &__container {
-        padding: 40px 10px 170px 10px;
+        padding: 40px 10px 100px 10px;
         display: flex;
         flex-direction: column;
         gap: 50px;
@@ -592,7 +592,7 @@ svg {
 
 .footer {
     background-color: #FFF3F4;
-    padding: 10px 0 25px 0;
+    padding: 15px 0;
     text-align: center;
 
     // .footer__container
@@ -601,6 +601,7 @@ svg {
         display: grid;
         grid-template-columns: 150px 1fr;
         align-items: center;
+        gap: 20px;
     }
 
     // .footer__logo
@@ -612,22 +613,17 @@ svg {
         overflow: hidden;
         border-radius: 50%;
         position: relative;
-
-
-
     }
 
     // .footer__topText
     &__topText {
         color: #A69B9B;
         font-size: 22px;
-        margin-bottom: -30px;
     }
 
     // .footer__bottomText
     &__bottomText {
         font-size: 14px;
-        margin-bottom: -30px;
     }
 }
 
