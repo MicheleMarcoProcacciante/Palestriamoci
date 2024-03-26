@@ -75,3 +75,10 @@ ul {
   grid-template-columns: 1fr 1fr;
   gap: 15px;
 }
+
+#inputPassword {
+  -ms-flex-item-align: center;
+      align-self: center;
+  max-width: 370px;
+  margin: 0 auto;
+}
