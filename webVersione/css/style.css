@@ -678,9 +678,11 @@ svg {
 .footer__topText {
   color: #A69B9B;
   font-size: 22px;
+  margin-bottom: -30px;
 }
 .footer__bottomText {
   font-size: 14px;
+  margin-bottom: -30px;
 }
 
 .social-contacts {
@@ -698,9 +700,23 @@ svg {
 }
 .social-contacts a {
   display: block;
+  height: auto;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
 }
 .social-contacts a img {
   width: 30px;
+}
+.social-contacts a img:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 .footer__icons {

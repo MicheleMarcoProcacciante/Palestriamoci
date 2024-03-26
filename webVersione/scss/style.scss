@@ -612,22 +612,28 @@ svg {
         overflow: hidden;
         border-radius: 50%;
         position: relative;
+
+
+
     }
 
     // .footer__topText
     &__topText {
         color: #A69B9B;
         font-size: 22px;
+        margin-bottom: -30px;
     }
 
     // .footer__bottomText
     &__bottomText {
         font-size: 14px;
+        margin-bottom: -30px;
     }
 }
 
 .social-contacts {
     width: 100%;
+
     display: flex;
     gap: 10px;
     align-items: center;
@@ -635,9 +641,17 @@ svg {
 
     a {
         display: block;
+        height: auto;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        transform: scale(1);
 
         img {
             width: 30px;
+        }
+
+        img:hover {
+            cursor: pointer;
+            transform: scale(1.1);
         }
     }
 }
