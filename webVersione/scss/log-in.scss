@@ -1,0 +1,82 @@
+.log-in {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .logo {
+        width: 44px;
+    }
+
+    .menu__logo {
+        margin-right: 0;
+    }
+
+    .header {
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    .footer {
+        width: 100%;
+    }
+}
+
+ul {
+    margin-bottom: 0;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {}
+
+}
+
+.access {
+
+    // .access_text
+    &_text {
+        font-size: 44px;
+        font-weight: 700;
+    }
+}
+
+.color-red {
+    color: #FF2625;
+}
+
+.container {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+
+    * {
+        align-self: center;
+        width: 100%;
+    }
+}
+
+.col-5 {}
+
+.col-auto {}
+
+.col-8 {}
+
+.col-form-label {}
+
+.form-control {}
+
+.form-text {}
+
+.btn {
+
+    // .btn_log-in
+    &_log-in {}
+}
+
+.mb-3 {}

@@ -1,6 +1,37 @@
 @import 'null';
 @import 'fonts';
-// ==================A========================
+@import 'log-in';
+
+// ==================BODY========================
+
+body {
+    font-family: "Alegreya";
+    font-size: 22px;
+    background-color: #FFFAFB;
+}
+
+.wrapper {
+    overflow: hidden;
+
+    // .wrapper__container
+    &__container {}
+}
+
+[class*=__container] {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+
+    @media (min-width: 600px) {
+        padding: 0 3.25rem;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+// ==================Links========================
 
 a {
     text-decoration: none;
@@ -22,15 +53,10 @@ a {
 // ==================LOGO========================
 .logo {
     width: 100px;
-    /* Set the width of the logo container */
     display: block;
-    /* To center the img within the logo container if needed */
     overflow: hidden;
-    /* Ensures the img doesn't break out of the container */
     border-radius: 50%;
-    /* If you want the logo container to be circular */
     position: relative;
-    /* Set a stacking context for the pseudo element */
 }
 
 .logo img {
@@ -46,29 +72,6 @@ a {
 }
 
 
-// ==================BODY========================
-
-body {
-    font-family: "Alegreya";
-    font-size: 22px;
-    background-color: #FFFAFB;
-}
-
-.wrapper {
-
-    // .wrapper__container
-    &__container {}
-}
-
-[class*=__container] {
-    max-width: 1440px;
-    margin: 0 auto;
-    padding: 0 1.25rem;
-
-    @media (min-width: 600px) {
-        padding: 0 3.25rem;
-    }
-}
 
 // ==================TITLES========================
 
@@ -183,8 +186,9 @@ svg {
 // ================Header==========================
 
 .header {
-    padding: 20px 32px 32px 0;
-    margin-bottom: 20px;
+    padding: 0px 32px 0px 0;
+    // margin-bottom: 50px;
+    background-color: #FFF3F4;
 
     // .header__menu
     &__menu {}
@@ -228,11 +232,20 @@ svg {
     // .menu__burger
     &__burger {
         align-self: center;
+
+        img {
+            max-width: 40px;
+            height: auto;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            transform: scale(1);
+        }
+
+        img:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+        }
     }
 }
-
-
-
 
 
 // ================MAIN==========================
@@ -249,6 +262,8 @@ svg {
 
     // .block-main__container
     &__container {
+        margin-top: 60px;
+
         display: flex;
         justify-content: space-between;
         padding: 10px 10px 170px 10px;
@@ -298,7 +313,7 @@ svg {
 
             @media (min-width: 1150px) {
                 position: absolute;
-                bottom: 0px;
+                bottom: -60px;
                 left: 50px;
                 width: 100%;
                 height: auto;
@@ -332,7 +347,7 @@ svg {
     position: absolute;
 }
 
-.block-main::after {
+.block-main__container::after {
 
     @media (min-width: 800px) {
         content: 'Exercise';
@@ -340,7 +355,7 @@ svg {
         font-weight: 900;
         font-size: 200px;
         bottom: -50px;
-        left: -30px;
+        left: 20px;
         position: absolute;
         line-height: 170%;
         z-index: -2;
@@ -357,6 +372,7 @@ svg {
 }
 
 .block-StepByStep {
+    background-color: #FFF3F4;
 
     // .block-StepByStep__container
     &__container {
@@ -468,6 +484,9 @@ svg {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 90px;
+    justify-content: end;
+    // align-content: end;
+    // justify-content: end;
 
     @media (max-width: 900px) {
         grid-template-columns: 1fr;
@@ -485,6 +504,9 @@ svg {
     // .banefit-card__titles
     &__titles {
         align-self: center;
+        max-width: 100%;
+
+
 
         .titles-main__subTitle {
             font-size: 26px;
@@ -507,6 +529,10 @@ svg {
             }
         }
     }
+}
+
+.text-align-right {
+    text-align: end;
 }
 
 .brRadiusBottomRight {
@@ -555,3 +581,38 @@ svg {
 
 // ================footer==========================
 .footer {}
+
+.footer {
+    background-color: #FFF3F4;
+    padding: 25px 0;
+    text-align: center;
+
+    // .footer__container
+    &__container {
+        padding: 0;
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        align-items: center;
+    }
+
+    // .footer__logo
+    &__logo {
+        grid-row: 1 / span 2;
+        width: 100px;
+        display: block;
+        overflow: hidden;
+        border-radius: 50%;
+        position: relative;
+    }
+
+    // .footer__topText
+    &__topText {
+        color: #A69B9B;
+        font-size: 22px;
+    }
+
+    // .footer__bottomText
+    &__bottomText {
+        font-size: 14px;
+    }
+}

@@ -50,6 +50,34 @@ html {
 }
 
 /* ================================================================ */
+.flex img {
+  text-align: center;
+}
+
+body {
+  font-family: "Alegreya";
+  font-size: 22px;
+  background-color: #FFFAFB;
+}
+
+.wrapper {
+  overflow: hidden;
+}
+[class*=__container] {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+@media (min-width: 600px) {
+  [class*=__container] {
+    padding: 0 3.25rem;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 a {
   text-decoration: none;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#FF2625), to(#FF2625));
@@ -71,15 +99,10 @@ a {
 
 .logo {
   width: 100px;
-  /* Set the width of the logo container */
   display: block;
-  /* To center the img within the logo container if needed */
   overflow: hidden;
-  /* Ensures the img doesn't break out of the container */
   border-radius: 50%;
-  /* If you want the logo container to be circular */
   position: relative;
-  /* Set a stacking context for the pseudo element */
 }
 
 .logo img {
@@ -99,23 +122,6 @@ a {
   -webkit-transform: scale(1.1);
       -ms-transform: scale(1.1);
           transform: scale(1.1);
-}
-
-body {
-  font-family: "Alegreya";
-  font-size: 22px;
-  background-color: #FFFAFB;
-}
-
-[class*=__container] {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 1.25rem;
-}
-@media (min-width: 600px) {
-  [class*=__container] {
-    padding: 0 3.25rem;
-  }
 }
 
 .titles-main {
@@ -220,8 +226,8 @@ svg {
 }
 
 .header {
-  padding: 20px 32px 32px 0;
-  margin-bottom: 20px;
+  padding: 0px 32px 0px 0;
+  background-color: #FFF3F4;
 }
 @media (max-width: 900px) {
   .header {
@@ -269,11 +275,29 @@ svg {
   -ms-flex-item-align: center;
       align-self: center;
 }
+.menu__burger img {
+  max-width: 40px;
+  height: auto;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+}
+.menu__burger img:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
+}
 
 .block-main {
   position: relative;
 }
 .block-main__container {
+  margin-top: 60px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -330,7 +354,7 @@ svg {
 @media (min-width: 1150px) {
   .block-main__image img {
     position: absolute;
-    bottom: 0px;
+    bottom: -60px;
     left: 50px;
     width: 100%;
     height: auto;
@@ -364,13 +388,13 @@ svg {
 }
 
 @media (min-width: 800px) {
-  .block-main::after {
+  .block-main__container::after {
     content: "Exercise";
     font-family: "Josefin Sans";
     font-weight: 900;
     font-size: 200px;
     bottom: -50px;
-    left: -30px;
+    left: 20px;
     position: absolute;
     line-height: 170%;
     z-index: -2;
@@ -379,6 +403,9 @@ svg {
   }
 }
 
+.block-StepByStep {
+  background-color: #FFF3F4;
+}
 .block-StepByStep__container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -464,6 +491,9 @@ svg {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 90px;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
 }
 @media (max-width: 900px) {
   .banefit-card {
@@ -479,6 +509,7 @@ svg {
 .banefit-card__titles {
   -ms-flex-item-align: center;
       align-self: center;
+  max-width: 100%;
 }
 .banefit-card__titles .titles-main__subTitle {
   font-size: 26px;
@@ -500,6 +531,10 @@ svg {
   .banefit-card__titles .titles-main__title {
     font-size: 28px;
   }
+}
+
+.text-align-right {
+  text-align: end;
 }
 
 .brRadiusBottomRight img {
@@ -541,4 +576,33 @@ svg {
         -ms-flex-order: 1;
             order: 1;
   }
+}
+
+.footer {
+  background-color: #FFF3F4;
+  padding: 25px 0;
+  text-align: center;
+}
+.footer__container {
+  padding: 0;
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.footer__logo {
+  grid-row: 1/span 2;
+  width: 100px;
+  display: block;
+  overflow: hidden;
+  border-radius: 50%;
+  position: relative;
+}
+.footer__topText {
+  color: #A69B9B;
+  font-size: 22px;
+}
+.footer__bottomText {
+  font-size: 14px;
 }
