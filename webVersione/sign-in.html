@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/log-in.css">
   <link rel="icon" href="img/logo/logoRed.ico">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 
 <body>
@@ -61,8 +62,11 @@
         </div>
         <div class="col-8">
           <label for="inputPassword6" class="col-form-label">Password</label>
-          <input type="password" id="inputPassword" class="form-control" aria-describedby="passwordHelpInline"
+          <input type="password" id="inputPassword" maxlength="20" minlength="8" class="form-control" aria-describedby="passwordHelpInline"
             placeholder="Must be 8-20 characters long.">
+           <span class="material-symbols-outlined visibility" type="button"  onclick="showPwd()" value="Mostra/nascondi password">
+              visibility
+          </span>
         </div>
       </div>
       <div id="link_log-in">
@@ -74,7 +78,16 @@
 
       </div>
     </form>
-
+    <script>
+      function showPwd() {
+          var input = document.getElementById('inputPassword');
+          if (input.type === "password") {
+            input.type = "text";
+          } else {
+            input.type = "password";
+          }
+        }
+    </script>
 
 
 
