@@ -9,6 +9,9 @@
  */
 .carousel {
   max-width: 1100px;
+  -ms-flex-item-align: center;
+      align-self: center;
+  text-align: center;
 }
 
 .itc-slider {

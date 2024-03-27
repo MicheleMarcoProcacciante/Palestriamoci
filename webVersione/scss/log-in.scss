@@ -24,7 +24,7 @@
     }
 }
 
-ul .menu__items {
+ul {
     margin-bottom: 0;
 }
 
@@ -38,6 +38,7 @@ ul .menu__items {
 
     // .access_text
     &_text {
+        text-align: center;
         font-size: 44px;
         font-weight: 700;
     }
