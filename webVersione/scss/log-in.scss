@@ -1,3 +1,8 @@
+.main__log-in {
+    display: flex;
+    flex-direction: column;
+}
+
 .log-in {
     display: flex;
     flex-direction: column;
@@ -51,11 +56,16 @@ ul {
     flex-direction: column;
     justify-content: center;
     gap: 20px;
+    align-self: center;
 
     * {
         align-self: center;
         width: 100%;
     }
+}
+
+#container-log-in {
+    width: 100%;
 }
 
 .col-5 {}
@@ -98,4 +108,80 @@ ul {
     width: 24px;
 }
 
-// ==============CAROUSEL===============
+.visibility_account {
+    position: absolute;
+    right: 10px;
+    bottom: 7px;
+    width: 24px;
+}
+
+// ==============ACCOUNT===============
+// .img_account {
+//     width: 200px;
+//     height: 200px;
+// }
+
+// .img_container {
+//     img {
+//         width: 200px;
+//     }
+// }
+
+// .acc {
+//     background-color: #FF2625;
+//     display: grid;
+//     grid-template-columns: 200px 1fr;
+// }
+
+// .info {
+//     display: flex;
+//     justify-content: space-between;
+//     padding: 30px;
+
+// }
+
+// .user-account {
+//     display: flex;
+//     justify-content: center;
+//     max-width: 100%;
+// }
+
+.account {
+    background-color: #FF2625;
+
+    // .account__container
+    &__container {}
+
+    // .account__image
+    &__image {
+        margin-top: 60px;
+        align-self: start;
+
+        img {
+            max-width: 200px;
+        }
+    }
+
+    // .account__userData
+    &__userData {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+
+        .container {
+            width: 500px;
+        }
+    }
+}
+
+.col-8 {
+    position: relative;
+}
+
+#btn_accedi {
+
+    .btn {
+        width: 100%;
+    }
+}

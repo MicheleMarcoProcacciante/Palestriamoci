@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,40 +9,97 @@
         crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="/static/css/log-in.css">
-    <link rel="stylesheet" href="/static/css/style.css">
-    <link rel="icon" href="/static/img/logo/logoRed.ico">
-
+    <link rel="stylesheet" href="css/log-in.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/logo/logoRed.ico">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <title>Document</title>
 </head>
+
 <body>
     <header class="header" id="header">
         <div class="header__container">
             <menu class="header__menu menu">
                 <div class="menu__logo logo">
-                    <a href="index.html"><img src="/static/img/logo/logo.png" alt="logo"></a>
+                    <a href="index.html"><img src="img/logo/logo.png" alt="logo"></a>
                 </div>
                 <ul class="menu__items">
-                    <!-- <li class="menu__item"><a class="link" href="#">Casa</a></li> -->
-                    <li class="menu__item"><a class="link" href="my_account.html">Il Mio Account</a></li>
-                    <li class="menu__item"><a class="link" href="chi_siamo.html">Chi Siamo</a></li>
+                    <li class="menu__item"><a class="link" href="index.html">Casa</a></li>
+                    <!-- <li class="menu__item"><a class="link" href="my_account.html">Il Mio Account</a></li> -->
+                    <li class="menu__item"><a class="link" href="index.html#dreamTeam">Chi Siamo</a></li>
                     <!-- <li class="menu__item"><a class="link" href="#">Contatti</a></li> -->
                 </ul>
                 <div class="menu__burger">
-                    <a href="log-in.html#logo_log-in"><img src="/static/img/ico/login.png" alt="menu"></a>
+                    <a href="log-in.html#logo_log-in"><img src="img/ico/login.png" alt="menu"></a>
                 </div>
             </menu>
         </div>
     </header>
-    <div class="container-fluid acc">
-        <div class="img_container container">
-            <img src="/static/img/account_img.png" alt="" class="img_account">
+    <section class="account">
+        <div class="account__container">
+
+
+            <div class="account__userData">
+                <div class="account__image">
+                    <img src="img/ico/account_img.png" alt="account image">
+                </div>
+                <form class="container col-5 " id="container-form">
+                    <div class="col-auto">
+                        <div class="col-8 col2">
+                            <div class="col-8">
+                                <label for="exampleFormControlInput1" class="col-form-label" id="nome">Nome</label>
+                                <input type="text" class="form-control" id="inputNome" name="userName"
+                                    value="{{athlete.name}}">
+                            </div>
+                            <div class="col-8">
+                                <label for="exampleFormControlInput1" class="col-form-label"
+                                    id="surname">Cognome</label>
+                                <input type="text" class="form-control" id="inputCognome" name="userSurname"
+                                    value="{{athlete.surname}}">
+                            </div>
+                        </div>
+                        <div class="col-8 col2">
+                            <div class="col-8">
+                                <label for="exampleFormControlInput1" class="col-form-label" id="email">Data di nascita
+                                </label>
+                                <input type="date" class="form-control" id="inputDate" name="userDateOfBirth"
+                                    value="{{athlete.dateOfBirth}}">
+                            </div>
+                            <div class="col-8">
+                                <label for="exampleFormControlInput1" class="col-form-label" id="email">Email
+                                    address</label>
+                                <input type="email" class="form-control" id="inputEmail" name="userEmail"
+                                    value="{{athlete.email}}">
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <label for="inputPassword6" class="col-form-label">Password</label>
+                            <input type="password" id="inputPassword" maxlength="20" minlength="8" class="form-control"
+                                aria-describedby="passwordHelpInline" placeholder="Must be 8-20 characters long.">
+                            <span class="material-symbols-outlined visibility_account" type="button" onclick="showPwd()"
+                                value="Mostra/nascondi password">
+                                visibility
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-auto container btn_sign-ing" id="btn_accedi">
+                        <button type="submit" class="btn btn__white mb-3">Cambiare i dati</button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <h1 nome="returneName">Nome: {{athlete.name}}</h1>
-        <h1 nome="returnCogome">Cognome:</h1>
-        <h1 nome="returneDataNascita">Datata di Nascita:</h1>
-        <h1 nome="returneEmail">Email:</h1>
-    </div>
-    
+    </section>
+    <script>
+        function showPwd() {
+            var input = document.getElementById('inputPassword');
+            if (input.type === "password") {
+                input.type = "text";
+            } else {
+                input.type = "password";
+            }
+        }
+    </script>
 </body>
+
 </html>

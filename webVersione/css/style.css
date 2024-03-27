@@ -190,6 +190,7 @@ a {
 }
 .btn__white {
   border: #91C9FF 1px solid;
+  background-color: #fff;
 }
 
 svg {
@@ -664,4 +665,8 @@ svg {
       -ms-flex-align: center;
           align-items: center;
   grid-row: 1/span 2;
+}
+
+.logo-footer img {
+  width: 30px;
 }
