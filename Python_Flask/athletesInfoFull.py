@@ -1,16 +1,16 @@
 class Athletes:
     id = None
+    email = None
     password = None
     name = None
     surname = None
-    email = None
     date_of_birth = None
     
 
-    def __init__(self, id, p, n, s, e, d):
+    def __init__(self, id, e, p, n, s, d):
         self.id = id
-        self.password = p
-        self.name = n
-        self.surname = s
-        self.email = e
+        self.email = p
+        self.password = n
+        self.name = s
+        self.surname = e
         self.date_of_birth = str(d)
