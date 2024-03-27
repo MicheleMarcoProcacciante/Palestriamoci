@@ -111,7 +111,7 @@ def showCard():
         numeroschede = numeroschede + 1
 
     # return json.dumps(schede, default=vars)
-    return render_template("indexDELETE.html", test123 = schede, nSchede = numeroschede)
+    return render_template("indexDELETE.html", datiScheda = scheda, nSchede = numeroschede)
 
 
 @app.route('/register', methods = ['GET'])
@@ -122,14 +122,14 @@ def getRegister():
 @app.route('/register', methods = ['POST'])
 def register():
 
+    email = request.form['inputEmail']
+    password = request.form['inputPassword']
     name = request.form['inputNome']
     surname = request.form['inputCognome']
-    email = request.form['inputEmail']
     date_of_birth = request.form['inputDate']
-    password = request.form['inputPassword']
 
-    cursor.execute(f"""insert into athletes (password_, name_, surname, email, date_of_birth) values ('{password}', '{name}',
-                '{surname}','{email}','{date_of_birth}')""")
+    cursor.execute(f"""insert into athletes (email, password_, name_, surname, date_of_birth) values ('{email}', '{password}',
+                '{name}','{surname}','{date_of_birth}')""")
     
     # capire cosa serve
     cursor.connection.commit()
@@ -140,10 +140,10 @@ def register():
 
     #return render_template("buttare.html", datiHtmlNome = name, datiHtmlCognome = surname, datiHtmlEmail = email, datiHtmlPassword = password)
 
+
 @app.route("/homepage")
 def dettaglio():
     id = session["id_loggeduser"]
-
 
     sql = f"select * from athletes where athletes_id = {id}"
     cursor.execute(sql)
