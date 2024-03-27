@@ -53,11 +53,11 @@ comment_ varchar (255)
 );
 
 
-insert into athletes ( email, password_, name_, surname, date_of_birth)
+insert into athletes (email, password_, name_, surname, date_of_birth)
 values
-	("password1", "nome1", "cognome1", "ciao@ciao.it", "20230422"),
-	("password2", "nome2", "cognome2", "ciao2@ciao.it", "20230422"),
-  	("password3", "nome3", "cognome3", "ciao3@ciao.it", "20230422");
+	("ciao@ciao.it", "1", "nome1", "cognome1", "20230422"),
+	("ciao1@ciao.it", "1", "nome2", "cognome2", "20230423"),
+	("ciao2@ciao.it", "1", "nome3", "cognome3", "20230424");
 
 
 insert into trainingCards (athletes_fk, name_table, date_)
@@ -66,7 +66,7 @@ values
 	(1,"nomeTablla2", "20240403"),
 	(1,"nomeTablla3", "20220422"),
    	(2,"nomeTablla4", "20231022"),
-        (2,"nomeTablla5", "20230720"),
+	(2,"nomeTablla5", "20230720"),
 	(3,"nomeTablla6", "20230412");
 
 insert into exercises (exercise_name, muscle_group, type_of_exercise,isAerobic)
@@ -75,11 +75,13 @@ values
 	("ex2","quadricipite", "flessioni",1),
 	("ex3","quadricipite", "stacco",0),
    	("ex4","quadricipite", "panca",0),
-        ("ex5","quadricipite", "affondi",1);
+	("ex5","quadricipite", "affondi",1);
 
 insert into cardsComposition (trainingCards_fk, exercises_fk, series, reps, loads, rest, duration,comment_)
 values
    	(1, 2,"5","3","90kg", "2minuti","/","ciao"),
+	(1, 2,"5","4","95kg", "2minuti","/","ciao"),
+	(1, 2,"5","5","100kg", "2minuti","/","ciao"),
  	(2, 2, "4","10","50kg","3minuti","5","ciao2"),
  	(3, 3, "3","5","30kg","20 minuti","3","ciao3"),
  	(4, 2, "4","10","50kg","3minuti","5","ciao4"),
@@ -102,6 +104,15 @@ from exercises
 	inner join cardsComposition on cardsComposition.exercises_fk = exercises.exercises_id
 	inner join trainingCards on cardsComposition.trainingCards_fk  = trainingCards.trainingCards_id
 where trainingCards.trainingCards_id = 1;
+
+
+
+select trainingCards.trainingCards_id, athletes.athletes_id, trainingCards.name_table, trainingCards.date_, cardsComposition.series, cardsComposition.reps, cardsComposition.loads,
+cardsComposition.rest, cardsComposition.duration, cardsComposition.comment_
+from trainingCards
+    left join athletes on trainingcards.athletes_fk = athletes.athletes_id
+    inner join cardsComposition on trainingCards.trainingCards_id = cardsComposition.trainingCards_fk
+where athletes.athletes_id = 1;
 
 
 /*query per controllare se l'email di registrazione è già esistente
