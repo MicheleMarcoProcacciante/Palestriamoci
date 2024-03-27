@@ -2,7 +2,7 @@ from athletesInfoFull import Athletes
 from athletesInfoShared import AthletesInfoShared
 from trainingCards import TrainingCards
 from cardsComposition import CardsComposition
-from flask import Flask, request,   render_template, redirect, url_for, session
+from flask import Flask, request, render_template, redirect, url_for, session
 from flask_session import Session
 import pymysql
 import json
@@ -110,11 +110,8 @@ def showCard():
         schede.append(scheda)
         numeroschede = numeroschede + 1
 
-    print(numeroschede)
-        
-
-    print(schede)
-    return json.dumps(schede, default=vars)
+    # return json.dumps(schede, default=vars)
+    return render_template("indexDELETE.html", test123 = schede, nSchede = numeroschede)
 
 
 @app.route('/register', methods = ['GET'])
@@ -146,6 +143,7 @@ def register():
 @app.route("/homepage")
 def dettaglio():
     id = session["id_loggeduser"]
+
 
     sql = f"select * from athletes where athletes_id = {id}"
     cursor.execute(sql)
