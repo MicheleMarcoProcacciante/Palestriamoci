@@ -1,6 +1,5 @@
 @import 'null';
 @import 'fonts';
-@import 'log-in';
 
 // ==================BODY========================
 
@@ -46,7 +45,7 @@ a {
     background-size: 100% 2px;
 }
 
-.link-red {
+.color-red {
     color: #FF2625;
 }
 
@@ -70,8 +69,6 @@ a {
     cursor: pointer;
     transform: scale(1.1);
 }
-
-
 
 // ==================TITLES========================
 
@@ -491,8 +488,6 @@ svg {
     grid-template-columns: 1fr 1fr;
     gap: 90px;
     justify-content: end;
-    // align-content: end;
-    // justify-content: end;
 
     @media (max-width: 900px) {
         grid-template-columns: 1fr;

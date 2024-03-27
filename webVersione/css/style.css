@@ -50,91 +50,6 @@ html {
 }
 
 /* ================================================================ */
-.log-in {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-align: center;
-}
-.log-in .logo {
-  width: 44px;
-}
-.log-in .menu__logo {
-  margin-right: 0;
-}
-.log-in .header {
-  width: 100%;
-  padding: 20px 0;
-}
-.log-in .footer {
-  width: 100%;
-}
-
-ul {
-  margin-bottom: 0;
-}
-
-.flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.access_text {
-  font-size: 44px;
-  font-weight: 700;
-}
-
-.color-red {
-  color: #FF2625;
-}
-
-.container {
-  margin: 20px 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  gap: 20px;
-}
-.container * {
-  -ms-flex-item-align: center;
-      align-self: center;
-  width: 100%;
-}
-
-.col2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-}
-
-#inputPassword {
-  -ms-flex-item-align: center;
-      align-self: center;
-  max-width: 370px;
-  margin: 0 auto;
-}
-
 body {
   font-family: "Alegreya";
   font-size: 22px;
@@ -174,7 +89,7 @@ a {
   background-size: 100% 2px;
 }
 
-.link-red {
+.color-red {
   color: #FF2625;
 }
 

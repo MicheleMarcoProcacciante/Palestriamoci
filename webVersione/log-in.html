@@ -13,7 +13,8 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/log-in.css">
   <link rel="icon" href="img/logo/logoRed.ico">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 
 <body>
@@ -33,52 +34,46 @@
         </menu>
       </div>
     </header>
-    <div class="flex" id="logo_log-in">
-      <img src="img/logo/logo.png" style="width: 200px;" alt="Logo">
+    <main class="main">
+      <div class="flex" id="logo_log-in">
+        <img src="img/logo/logo.png" style="width: 200px;" alt="Logo">
 
-    </div>
-    <h1 class="access_text">Benvenuto su <span class="color-red">__Palestriamoci</span> </h1>
-    <form class="container col-5 " id="container-form">
-      <div class="col-auto">
-        <div class="col-8">
-          <label for="exampleFormControlInput1" class="col-form-label" id="email">Email address</label>
-          <input type="email" class="form-control" id="inputEmail" placeholder="name@example.com">
-        </div>
       </div>
-      <div class="col-auto">
-        <div class="col-8">
-          <label for="inputPassword6" class="col-form-label">Password</label>
-          <input type="password" id="inputPassword" maxlength="20" minlength="8"  class="form-control" aria-describedby="passwordHelpInline"
-            placeholder="Must be 8-20 characters long.">
-          <span class="material-symbols-outlined visibility" type="button"  onclick="showPwd()" value="Mostra/nascondi password">
+      <h1 class="access_text">Benvenuto su <span class="color-red">__Palestriamoci</span> </h1>
+      <form class="container col-5 " id="container-form">
+        <div class="col-auto">
+          <div class="col-8">
+            <label for="exampleFormControlInput1" class="col-form-label" id="email">Email address</label>
+            <input type="email" class="form-control" id="inputEmail" placeholder="name@example.com">
+          </div>
+        </div>
+        <div class="col-auto">
+          <div class="col-8">
+            <label for="inputPassword6" class="col-form-label">Password</label>
+            <input type="password" id="inputPassword" maxlength="20" minlength="8" class="form-control"
+              aria-describedby="passwordHelpInline" placeholder="Must be 8-20 characters long.">
+            <span class="material-symbols-outlined visibility" type="button" onclick="showPwd()"
+              value="Mostra/nascondi password">
               visibility
-          </span>
+            </span>
+          </div>
+          <div class="col-auto">
+          </div>
+          <div class="col-auto">
+            <span id="passwordHelpInline" class="form-text">
+            </span>
+          </div>
         </div>
-        <div class="col-auto">
+        <div id="link_sing-in">
+          <span>Non hai un account? </span><a class="link" href="sign-in.html#logo_log-in"><span
+              class="color-red ">Registrati</span></a>
         </div>
-        <div class="col-auto">
-          <span id="passwordHelpInline" class="form-text">
-          </span>
+        <div class="col-auto container btn_log-in" id="btn_accedi">
+          <button type="submit" class="btn btn__red mb-3">Accedi</button>
         </div>
-      </div>
-      <div id="link_sing-in">
-        <span>Non hai un account? </span><a class="link" href="sign-in.html#logo_log-in"><span
-            class="color-red ">Registrati</span></a>
-      </div>
-      <div class="col-auto container btn_log-in" id="btn_accedi">
-        <button type="submit" class="btn btn__red mb-3">Accedi</button>
-      </div>
-    </form>
-    <script>
-      function showPwd() {
-          var input = document.getElementById('inputPassword');
-          if (input.type === "password") {
-            input.type = "text";
-          } else {
-            input.type = "password";
-          }
-        }
-    </script>
+      </form>
+    </main>
+
 
 
     <footer class="footer">
@@ -101,6 +96,16 @@
       </div>
     </footer>
   </div>
+  <script>
+    function showPwd() {
+      var input = document.getElementById('inputPassword');
+      if (input.type === "password") {
+        input.type = "text";
+      } else {
+        input.type = "password";
+      }
+    }
+  </script>
 </body>
 
 </html>

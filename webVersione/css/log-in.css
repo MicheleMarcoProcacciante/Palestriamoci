@@ -10,6 +10,9 @@
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .log-in .logo {
   width: 44px;
@@ -25,7 +28,7 @@
   width: 100%;
 }
 
-ul {
+ul .menu__items {
   margin-bottom: 0;
 }
 
@@ -41,13 +44,10 @@ ul {
       -ms-flex-align: center;
           align-items: center;
 }
+
 .access_text {
   font-size: 44px;
   font-weight: 700;
-}
-
-.color-red {
-  color: #FF2625;
 }
 
 .container {
@@ -79,10 +79,10 @@ ul {
 #inputPassword {
   -ms-flex-item-align: center;
       align-self: center;
-  max-width: 370px;
   margin: 0 auto;
 }
-.visibility{
+
+.visibility {
   position: relative;
   left: 280px;
   bottom: 30px;
