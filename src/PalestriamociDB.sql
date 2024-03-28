@@ -23,7 +23,8 @@ constraint fk_trainingCards_athletes
 foreign key (athletes_fk)
 references athletes(athletes_id),
 name_table varchar (100) not null,
-date_ date not null
+date_ date not null,
+comment_ varchar (255)
 )engine InnoDB; 
 
 create table exercises(
@@ -48,44 +49,44 @@ series varchar(50) not null,
 reps varchar(50) not null,
 loads varchar (50) not null,
 rest varchar(50) not null,
-duration varchar(50) not null,
-comment_ varchar (255)
+duration varchar(50) not null
 );
 
 
 insert into athletes (email, password_, name_, surname, date_of_birth)
 values
-	("ciao@ciao.it", "1", "nome1", "cognome1", "20230422"),
-	("ciao1@ciao.it", "1", "nome2", "cognome2", "20230423"),
-	("ciao2@ciao.it", "1", "nome3", "cognome3", "20230424");
+	("ciao@ciao.it", "12345678", "nome1", "cognome1", "20230422"),
+	("ciao1@ciao.it", "87654321", "nome2", "cognome2", "20230423"),
+	("ciao2@ciao.it", "12345678", "nome3", "cognome3", "20230424");
 
 
-insert into trainingCards (athletes_fk, name_table, date_)
+insert into trainingCards (athletes_fk, name_table, date_,comment_)
 values
-	(1,"nomeTablla1", "20230405"),
-	(1,"nomeTablla2", "20240403"),
-	(1,"nomeTablla3", "20220422"),
-   	(2,"nomeTablla4", "20231022"),
-	(2,"nomeTablla5", "20230720"),
-	(3,"nomeTablla6", "20230412");
+	(1,"nomesc Aldo", "20230405", "brutto commento"),
+	(1,"sc Giovanni", "20240403", "bel commento"),
+	(1,"sc Giacomo", "20220422", "mi sono annoiato"),
+   	(2,"Bracco", "20231022", "mi sono divertito"),
+	(2,"Baldo", "20230720", "commento"),
+	(3,"Geppetto", "20230412", "no comment");
 
 insert into exercises (exercise_name, muscle_group, type_of_exercise,isAerobic)
 values
-	("ex1","quadricipite", "squat",0),
-	("ex2","quadricipite", "flessioni",1),
-	("ex3","quadricipite", "stacco",0),
-   	("ex4","quadricipite", "panca",0),
-	("ex5","quadricipite", "affondi",1);
+	/*parlare con samuele su se eliminare type_of_exercise o isAerobic*/
+	("squat","quadricipite", "squat",0),
+	("flessioni","quadricipite", "flessioni",1),
+	("stacco","quadricipite", "stacco",0),
+   	("panca","quadricipite", "panca",0),
+	("affondi","quadricipite", "affondi",1);
 
-insert into cardsComposition (trainingCards_fk, exercises_fk, series, reps, loads, rest, duration,comment_)
+insert into cardsComposition (trainingCards_fk, exercises_fk, series, reps, loads, rest, duration)
 values
-   	(1, 2,"5","3","90kg", "2minuti","/","ciao"),
-	(1, 2,"5","4","95kg", "2minuti","/","ciao"),
-	(1, 2,"5","5","100kg", "2minuti","/","ciao"),
- 	(2, 2, "4","10","50kg","3minuti","5","ciao2"),
- 	(3, 3, "3","5","30kg","20 minuti","3","ciao3"),
- 	(4, 2, "4","10","50kg","3minuti","5","ciao4"),
- 	(5, 3, "3","5","30kg","20 minuti","3","ciao5");
+   	(1, 1,"2","30","60kg", "1minuti","3minuti"),
+	(1, 2,"5","42","95kg", "3minuti","/"),
+	(1, 3,"8","50","300kg", "7minuti","8minuti"),
+ 	(2, 2, "4","10","50kg","3minuti","5minuti"),
+ 	(3, 3, "1","5","30kg","20minuti","3minuti"),
+ 	(4, 2, "10","100","5kg","3minuti","5minuti"),
+ 	(5, 5, "23","10","30kg","20minuti","3minuti");
 
 /*query per ottenere tutte le cards di un singolo utente
 (endpoint allenamenti svolti)*/
@@ -99,7 +100,7 @@ where athletes_fk = 2;
 (endpoint visualizzazione_scheda)*/
 
 select exercises.exercise_name, trainingCards.date_, cardsComposition.series, cardsComposition.reps, cardsComposition.loads,
-cardsComposition.rest, cardsComposition.duration, cardsComposition.comment_
+cardsComposition.rest, cardsComposition.duration, trainingCards.comment_
 from exercises
 	inner join cardsComposition on cardsComposition.exercises_fk = exercises.exercises_id
 	inner join trainingCards on cardsComposition.trainingCards_fk  = trainingCards.trainingCards_id
@@ -107,11 +108,13 @@ where trainingCards.trainingCards_id = 1;
 
 
 
-select trainingCards.trainingCards_id, athletes.athletes_id, trainingCards.name_table, trainingCards.date_, cardsComposition.series, cardsComposition.reps, cardsComposition.loads,
-cardsComposition.rest, cardsComposition.duration, cardsComposition.comment_
+select trainingCards.trainingCards_id, athletes.athletes_id, trainingCards.name_table, trainingCards.date_, exercises.exercise_name,
+cardsComposition.series, cardsComposition.reps, cardsComposition.loads,cardsComposition.rest,
+cardsComposition.duration, trainingCards.comment_
 from trainingCards
     left join athletes on trainingcards.athletes_fk = athletes.athletes_id
     inner join cardsComposition on trainingCards.trainingCards_id = cardsComposition.trainingCards_fk
+    inner join exercises on cardsComposition.exercises_fk = exercises.exercises_id
 where athletes.athletes_id = 1;
 
 
