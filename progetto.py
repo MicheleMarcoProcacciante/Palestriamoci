@@ -1,5 +1,4 @@
 from athletesInfoFull import Athletes
-# from athletesInfoShared import AthletesInfoShared
 from trainingCards import TrainingCards
 from cardsComposition import CardsComposition
 from flask import Flask, request, render_template, redirect, url_for, session
@@ -12,7 +11,7 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
-connection = pymysql.connect(host="localhost", user="root", password="XCqgtecl06!", database="palestriamocidb", port=3306, autocommit=True)
+connection = pymysql.connect(host="localhost", user="root", password="root", database="palestriamocidb", port=3306, autocommit=True)
 
 cursor = connection.cursor()
 
@@ -37,19 +36,20 @@ def login():
     return json.dumps(atleta, default=vars)
 '''
 
+
+# endpoint
 @app.route('/login', methods = ['GET'])
 def getLogin():
-    return render_template("log-in.html", )
+    return render_template("log-in.html")
     
 
-@app.route('/templates/log-in.html?#logo_log-in', methods = ['POST'])
+@app.route('/login', methods = ['POST'])
 def login():
-    
     email = request.form.get('inputEmail')
     password = request.form.get('inputPassword')
+
     # email = request.form['inputEmail']
     # password = request.form['inputPassword']
-
     atleta = None
 
     try:
@@ -59,8 +59,9 @@ def login():
 
         atleta = Athletes (row[0],row[1],row[2],row[3],row[4],row[5])        
 
-        session["id_loggeduser"] = atleta.id
+        print(atleta.date_of_birth)
 
+        session["id_loggeduser"] = atleta.id
 
         return redirect ("/account")
     
@@ -214,6 +215,11 @@ def dettaglio():
     # Password non si vede perchè manca nel html, decidere come implementarla
 
     return render_template("my_account.html", athlete = atleta)
+
+@app.route('/index')
+def getIndex():
+    print("errore1")
+    return render_template("index.html", )
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)

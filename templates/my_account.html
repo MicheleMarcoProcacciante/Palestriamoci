@@ -22,16 +22,16 @@
         <div class="header__container">
             <menu class="header__menu menu">
                 <div class="menu__logo logo">
-                    <a href="index.html"><img src="../static/img/logo/logo.png" alt="logo"></a>
+                    <a href="index"><img src="../static/img/logo/logo.png" alt="logo"></a>
                 </div>
                 <ul class="menu__items">
-                    <li class="menu__item"><a class="link" href="index.html">Casa</a></li>
+                    <li class="menu__item"><a class="link" href="index">Casa</a></li>
                     <!-- <li class="menu__item"><a class="link" href="my_account.html">Il Mio Account</a></li> -->
-                    <li class="menu__item"><a class="link" href="index.html#dreamTeam">Chi Siamo</a></li>
+                    <li class="menu__item"><a class="link" href="index#dreamTeam">Chi Siamo</a></li>
                     <!-- <li class="menu__item"><a class="link" href="#">Contatti</a></li> -->
                 </ul>
                 <div class="menu__burger">
-                    <a href="log-in.html#logo_log-in"><img src="../static/img/ico/login.png" alt="menu"></a>
+                    <a href="login"><img src="../static/img/ico/login.png" alt="menu"></a>
                 </div>
             </menu>
         </div>
@@ -49,13 +49,13 @@
                         <div class="col-8 col2">
                             <div class="col-8">
                                 <label for="exampleFormControlInput1" class="col-form-label" id="nome">Nome</label>
-                                <input type="text" class="form-control" id="inputNome" name="userName"
+                                <input type="text" class="form-control" name="inputNome" id="inputNome" name="userName"
                                     value="{{athlete.name}}">
                             </div>
                             <div class="col-8">
                                 <label for="exampleFormControlInput1" class="col-form-label"
                                     id="surname">Cognome</label>
-                                <input type="text" class="form-control" id="inputCognome" name="userSurname"
+                                <input type="text" class="form-control" name="inputCognome" id="inputCognome" name="userSurname"
                                     value="{{athlete.surname}}">
                             </div>
                         </div>
@@ -63,13 +63,13 @@
                             <div class="col-8">
                                 <label for="exampleFormControlInput1" class="col-form-label" id="email">Data di nascita
                                 </label>
-                                <input type="date" class="form-control" id="inputDate" name="userDateOfBirth"
-                                    value="{{athlete.dateOfBirth}}">
+                                <input type="date" class="form-control" name="inputDate" id="inputDate" name="userDateOfBirth"
+                                    value="{{athlete.date_of_birth}}">
                             </div>
                             <div class="col-8">
                                 <label for="exampleFormControlInput1" class="col-form-label" id="email">Email
                                     address</label>
-                                <input type="email" class="form-control" id="inputEmail" name="userEmail"
+                                <input type="email" class="form-control" name="inputEmail" id="inputEmail" name="userEmail"
                                     value="{{athlete.email}}">
                             </div>
                         </div>
