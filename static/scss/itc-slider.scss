@@ -1,0 +1,165 @@
+/**
+ * ItcSlider
+ * @version 1.0.1
+ * @author https://github.com/itchief
+ * @copyright Alexander Maltsev 2020 - 2023
+ * @license MIT (https://github.com/itchief/ui-components/blob/master/LICENSE)
+ * @tutorial https://itchief.ru/javascript/slider
+ */
+
+.carousel {
+    max-width: 1100px;
+    align-self: center;
+    text-align: center;
+}
+
+
+.itc-slider {
+    position: relative;
+    padding: 50px;
+    margin-bottom: 50px;
+
+}
+
+.itc-slider-wrapper {
+    overflow: hidden;
+    background-color: #FFFAFB;
+
+}
+
+.itc-slider-items {
+    display: flex;
+    transition: transform 0.5s ease;
+    will-change: transform;
+}
+
+.itc-slider-transition-none {
+    transition: none;
+}
+
+.itc-slider-item {
+    flex: 0 0 33.3%;
+    max-width: 100%;
+    user-select: none;
+    will-change: transform;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: 10px;
+
+}
+
+.itc-slider-item__image {
+    height: 100%;
+    flex: 1 1 100%;
+
+    img {
+        max-width: 300px;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+}
+
+.itc-slider-item__description {
+    min-height: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    .itc-slider-item__name {
+        font-weight: 700;
+        font-size: 26px;
+    }
+
+    .itc-slider-item__position {
+        height: 70px;
+    }
+}
+
+/* кнопки влево и вправо */
+.itc-slider-btn {
+    position: absolute;
+    top: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 50px;
+    color: #fff;
+    text-align: center;
+    background: rgb(0 0 0 / 20%);
+    border: none;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.itc-slider-btn-hide {
+    display: none;
+}
+
+.itc-slider-btn-prev {
+    left: 0;
+}
+
+.itc-slider-btn-next {
+    right: 0;
+}
+
+.itc-slider-btn:hover,
+.itc-slider-btn:focus {
+    color: #FF2625;
+    text-decoration: none;
+    background: rgb(0 0 0 / 30%);
+    outline: 0;
+}
+
+.itc-slider-btn::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: transparent no-repeat center center;
+    background-size: 100% 100%;
+}
+
+.itc-slider-btn-prev::before {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+}
+
+.itc-slider-btn-next::before {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+}
+
+/* индикаторы */
+.itc-slider-indicators {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 15;
+    display: flex;
+    justify-content: center;
+    margin: 0 15%;
+    padding-left: 0;
+    list-style: none;
+}
+
+.itc-slider-indicator {
+    flex: 0 1 auto;
+    box-sizing: content-box;
+    width: 30px;
+    height: 5px;
+    margin-right: 3px;
+    margin-left: 3px;
+    text-indent: -999px;
+    background-color: #FF2625;
+    background-clip: padding-box;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    cursor: pointer;
+}
+
+.itc-slider-indicator-active {
+    background-color: #000000;
+}

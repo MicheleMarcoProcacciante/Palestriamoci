@@ -1,0 +1,147 @@
+.main__log-in {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.log-in {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.log-in .logo {
+  width: 44px;
+}
+.log-in .menu__logo {
+  margin-right: 0;
+}
+.log-in .header {
+  width: 100%;
+  padding: 20px 0;
+}
+.log-in .footer {
+  width: 100%;
+}
+
+ul {
+  margin-bottom: 0;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.access_text {
+  text-align: center;
+  font-size: 44px;
+  font-weight: 700;
+}
+
+.container {
+  margin: 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 20px;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+.container * {
+  -ms-flex-item-align: center;
+      align-self: center;
+  width: 100%;
+}
+
+#container-log-in {
+  width: 100%;
+}
+
+.col2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+#inputPassword {
+  -ms-flex-item-align: center;
+      align-self: center;
+  margin: 0 auto;
+}
+
+.visibility {
+  position: relative;
+  left: 280px;
+  bottom: 30px;
+  width: 24px;
+}
+
+.visibility_account {
+  position: absolute;
+  right: 10px;
+  bottom: 7px;
+  width: 24px;
+}
+
+.account {
+  background-color: #FF2625;
+}
+.account__image {
+  margin-top: 60px;
+  -ms-flex-item-align: start;
+      align-self: start;
+}
+.account__image img {
+  max-width: 200px;
+}
+.account__userData {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 50px;
+}
+.account__userData .container {
+  width: 500px;
+}
+
+.col-8 {
+  position: relative;
+}
+
+#btn_accedi .btn {
+  width: 100%;
+}
