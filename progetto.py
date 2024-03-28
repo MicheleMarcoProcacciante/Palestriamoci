@@ -161,7 +161,7 @@ def showCard():
 
     sql = """select trainingCards.trainingCards_id, trainingCards.name_table, trainingCards.date_, exercises.exercise_name,
         cardsComposition.series, cardsComposition.reps, cardsComposition.loads,cardsComposition.rest,
-        cardsComposition.duration, cardsComposition.comment_
+        cardsComposition.duration, trainingCards.comment_
         from trainingCards
         left join athletes on trainingcards.athletes_fk = athletes.athletes_id
         inner join cardsComposition on trainingCards.trainingCards_id = cardsComposition.trainingCards_fk
