@@ -1,0 +1,49 @@
+.log-in {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.log-in .logo {
+  width: 44px;
+}
+.log-in .menu__logo {
+  margin-right: 0;
+}
+.log-in .header {
+  width: 100%;
+  padding: 20px 0;
+}
+.log-in .footer {
+  width: 100%;
+}
+
+ul {
+  margin-bottom: 0;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.access_text {
+  font-size: 44px;
+  font-weight: 700;
+}
+
+.color-red {
+  color: #FF2625;
+}
+
+.container {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+.container * {
+  align-self: center;
+  width: 100%;
+}/*# sourceMappingURL=log-in.css.map */

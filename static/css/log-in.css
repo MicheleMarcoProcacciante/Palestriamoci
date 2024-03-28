@@ -1,13 +1,3 @@
-.main__log-in {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
 .log-in {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -20,9 +10,6 @@
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
 }
 .log-in .logo {
   width: 44px;
@@ -54,11 +41,13 @@ ul {
       -ms-flex-align: center;
           align-items: center;
 }
-
 .access_text {
-  text-align: center;
   font-size: 44px;
   font-weight: 700;
+}
+
+.color-red {
+  color: #FF2625;
 }
 
 .container {
@@ -67,6 +56,19 @@ ul {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 20px;
+}
+.container * {
+  -ms-flex-item-align: center;
+      align-self: center;
+  width: 100%;
+} vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
