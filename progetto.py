@@ -60,7 +60,7 @@ def login():
 
         atleta = Athletes (row[0],row[1],row[2],row[3],row[4],row[5])        
 
-        print(atleta.date_of_birth)
+        # print(atleta.date_of_birth)
 
         session["id_loggeduser"] = atleta.id
 
@@ -91,6 +91,8 @@ def showCardComposition():
     for elemento in righe:
         allenamentoGiornata = CardsComposition (elemento[0],elemento[1],elemento[2],elemento[3],elemento[4],elemento[5],elemento[6],elemento[7])
         allenamentiGiornata.append(allenamentoGiornata)
+
+    # print(allenamentiGiornata)
 
     return json.dumps(allenamentiGiornata, default=vars)
 
@@ -161,7 +163,7 @@ def showCard():
 
     sql = """select trainingCards.trainingCards_id, trainingCards.name_table, trainingCards.date_, exercises.exercise_name,
         cardsComposition.series, cardsComposition.reps, cardsComposition.loads,cardsComposition.rest,
-        cardsComposition.duration, cardsComposition.comment_
+        cardsComposition.duration, trainingCards.comment_
         from trainingCards
         left join athletes on trainingcards.athletes_fk = athletes.athletes_id
         inner join cardsComposition on trainingCards.trainingCards_id = cardsComposition.trainingCards_fk
@@ -180,7 +182,6 @@ def showCard():
         schede.append(scheda)
         numeroschede = numeroschede + 1
 
-    json.dump (numeroschede, )
     return json.dumps(schede, default=vars)
     # return render_template("my_account.html", datiSchede = schede, nSchede = numeroschede)
 
