@@ -180,7 +180,7 @@ def showCard():
         schede.append(scheda)
         numeroschede = numeroschede + 1
 
-    json.dump (numeroschede, )
+    # json.dump (numeroschede, default=vars)
     return json.dumps(schede, default=vars)
     # return render_template("my_account.html", datiSchede = schede, nSchede = numeroschede)
 
