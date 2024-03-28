@@ -1,5 +1,6 @@
 from athletesInfoFull import Athletes
-from trainingCards import TrainingCards
+from trainingCardsAndroid import TrainingCardsAndroid
+from trainingCardsWeb import TrainingCardsWeb
 from cardsComposition import CardsComposition
 from flask import Flask, request, render_template, redirect, url_for, session
 from flask_session import Session
@@ -76,7 +77,7 @@ def showCardComposition():
     
     id = request.args.get('trainingCards_id')
     sql = """select exercises.exercise_name, trainingCards.date_, cardsComposition.series, cardsComposition.reps,
-                cardsComposition.loads, cardsComposition.rest, cardsComposition.duration, cardsComposition.comment_
+                cardsComposition.loads, cardsComposition.rest, cardsComposition.duration, trainingCards.comment_
                 from exercises 
                     inner join cardsComposition on cardsComposition.exercises_fk = exercises.exercises_id
                     inner join trainingCards on cardsComposition.trainingCards_fk = trainingCards.trainingCards_id
@@ -158,7 +159,15 @@ def showCard():
     # id = session["id_loggeduser"]
     id = 1
 
-    sql = """"select * from TrainingCards where athletes_fk = '%s'" % (id)""" % (id)
+    sql = """select trainingCards.trainingCards_id, trainingCards.name_table, trainingCards.date_, exercises.exercise_name,
+        cardsComposition.series, cardsComposition.reps, cardsComposition.loads,cardsComposition.rest,
+        cardsComposition.duration, cardsComposition.comment_
+        from trainingCards
+        left join athletes on trainingcards.athletes_fk = athletes.athletes_id
+        inner join cardsComposition on trainingCards.trainingCards_id = cardsComposition.trainingCards_fk
+        inner join exercises on cardsComposition.exercises_fk = exercises.exercises_id
+        where athletes.athletes_id = '%s'""" % (id)
+    
     cursor.execute(sql)
     cards = cursor.fetchall()
 
@@ -166,13 +175,14 @@ def showCard():
 
     numeroschede = 0
 
-    for card in cards:
-        scheda = TrainingCards (card[0],card[1],card[2],card[3])
+    for c in cards:
+        scheda = TrainingCardsWeb (c[0],c[1],c[2],c[3],c[4],c[5],c[6],c[7],c[8],c[9])
         schede.append(scheda)
         numeroschede = numeroschede + 1
 
-    # return json.dumps(schede, default=vars)
-    return render_template("indexDELETE.html", datiSchede = schede, nSchede = numeroschede)
+    json.dump (numeroschede, )
+    return json.dumps(schede, default=vars)
+    # return render_template("my_account.html", datiSchede = schede, nSchede = numeroschede)
 
 
 @app.route('/register', methods = ['GET'])
@@ -182,9 +192,7 @@ def getRegister():
 
 @app.route('/register', methods = ['POST'])
 def register():
-    print("errore1")
     email = request.form['inputEmail']
-    print("errore2")
     password = request.form['inputPassword']
     name = request.form['inputNome']
     surname = request.form['inputCognome']
