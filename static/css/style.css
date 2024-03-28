@@ -50,78 +50,6 @@ html {
 }
 
 /* ================================================================ */
-.log-in {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-align: center;
-}
-.log-in .logo {
-  width: 44px;
-}
-.log-in .menu__logo {
-  margin-right: 0;
-}
-.log-in .header {
-  width: 100%;
-  padding: 20px 0;
-}
-.log-in .footer {
-  width: 100%;
-}
-
-ul {
-  margin-bottom: 0;
-}
-
-.flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.access_text {
-  font-size: 44px;
-  font-weight: 700;
-}
-
-.color-red {
-  color: #FF2625;
-}
-
-.container {
-  margin: 20px 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  gap: 20px;
-}
-.container * {
-  -ms-flex-item-align: center;
-      align-self: center;
-  width: 100%;
-}
-
 body {
   font-family: "Alegreya";
   font-size: 22px;
@@ -161,7 +89,7 @@ a {
   background-size: 100% 2px;
 }
 
-.link-red {
+.color-red {
   color: #FF2625;
 }
 
@@ -262,6 +190,7 @@ a {
 }
 .btn__white {
   border: #91C9FF 1px solid;
+  background-color: #fff;
 }
 
 svg {
@@ -294,12 +223,14 @@ svg {
 }
 
 .header {
-  padding: 0px 32px 0px 0;
   background-color: #FFF3F4;
+}
+.header__container {
+  padding: 0 0;
 }
 @media (max-width: 900px) {
   .header {
-    padding: 32px 0px 32px 0;
+    padding: 0px 0;
   }
 }
 
@@ -544,7 +475,7 @@ svg {
 }
 
 .block-benefits__container {
-  padding: 40px 10px 170px 10px;
+  padding: 40px 10px 100px 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -646,21 +577,34 @@ svg {
   }
 }
 
+.squadra-main__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
 .footer {
   background-color: #FFF3F4;
-  padding: 25px 0;
+  padding: 15px 0;
   text-align: center;
 }
 .footer__container {
   padding: 0;
   display: grid;
-  grid-template-columns: 100px 1fr;
+  grid-template-columns: 150px 1fr;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  gap: 20px;
 }
 .footer__logo {
-  grid-row: 1/span 2;
+  text-align: center;
   width: 100px;
   display: block;
   overflow: hidden;
@@ -674,6 +618,38 @@ svg {
 .footer__bottomText {
   font-size: 14px;
 }
+
+.social-contacts {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.social-contacts a {
+  display: block;
+  height: auto;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out, -webkit-box-shadow 0.3s ease-in-out;
+  -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+          transform: scale(1);
+}
+.social-contacts a img {
+  width: 30px;
+}
+.social-contacts a img:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
           transform: scale(1.1);
 }
 

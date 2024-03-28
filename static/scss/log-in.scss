@@ -1,3 +1,9 @@
+.wrapper_account {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .main__log-in {
     display: flex;
     flex-direction: column;
@@ -101,13 +107,6 @@ ul {
     margin: 0 auto;
 }
 
-.visibility {
-    position: relative;
-    left: 280px;
-    bottom: 30px;
-    width: 24px;
-}
-
 .visibility_account {
     position: absolute;
     right: 10px;
@@ -116,37 +115,9 @@ ul {
 }
 
 // ==============ACCOUNT===============
-// .img_account {
-//     width: 200px;
-//     height: 200px;
-// }
-
-// .img_container {
-//     img {
-//         width: 200px;
-//     }
-// }
-
-// .acc {
-//     background-color: #FF2625;
-//     display: grid;
-//     grid-template-columns: 200px 1fr;
-// }
-
-// .info {
-//     display: flex;
-//     justify-content: space-between;
-//     padding: 30px;
-
-// }
-
-// .user-account {
-//     display: flex;
-//     justify-content: center;
-//     max-width: 100%;
-// }
 
 .account {
+    flex: 1 1 auto;
     background-color: #FF2625;
 
     // .account__container
