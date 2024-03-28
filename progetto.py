@@ -11,7 +11,7 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
-connection = pymysql.connect(host="localhost", user="root", password="XCqgtecl06!", database="palestriamocidb", port=3306, autocommit=True)
+connection = pymysql.connect(host="localhost", user="root", password="root", database="palestriamocidb", port=3306, autocommit=True)
 
 cursor = connection.cursor()
 
@@ -182,8 +182,9 @@ def getRegister():
 
 @app.route('/register', methods = ['POST'])
 def register():
-
+    print("errore1")
     email = request.form['inputEmail']
+    print("errore2")
     password = request.form['inputPassword']
     name = request.form['inputNome']
     surname = request.form['inputCognome']
