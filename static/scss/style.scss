@@ -668,3 +668,62 @@ svg {
         width: 30px;
     }
 }
+
+// ================================= SCHEDE ======================================= 
+
+.btn_modal {
+    background-color: #FF2625;
+}
+
+
+
+.modal_box {
+    width: 1000px;
+    height: 580px;
+}
+
+.modal_container {
+    display: table;
+    width: auto;
+    height: auto;
+}
+
+.modal_table {
+    display: flex;
+}
+
+.exercise_name {
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+
+
+th,
+tr,
+td {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 1px;
+    width: auto;
+    height: auto;
+    padding: 1px;
+}
+
+.container_modal_body {
+    display: flex;
+    justify-content: center;
+}
+
+.info_scheda {
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+.commento {
+    padding: 16px;
+}
+.p_commento{
+    word-wrap: break-word;
+}
