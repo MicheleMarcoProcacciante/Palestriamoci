@@ -2,7 +2,7 @@ from athletesInfoFull import Athletes
 # from trainingCardsAndroid import TrainingCardsAndroid
 from trainingCardsWeb import TrainingCardsWeb
 from cardsComposition import CardsComposition
-from flask import Flask, request, render_template, redirect, url_for, session
+from flask import Flask, request, render_template, redirect, url_for, session, jsonify
 from flask_session import Session
 import pymysql
 import json
@@ -123,11 +123,42 @@ def update():
 
 @app.route('/showcards')
 def showCard():
+    id = session["id_loggeduser"]
+    # id = 1
+
+    sql = """select trainingCards.trainingCards_id, trainingCards.name_table, trainingCards.date_, exercises.exercise_name,
+        cardsComposition.series, cardsComposition.reps, cardsComposition.loads,cardsComposition.rest,
+        cardsComposition.duration, trainingCards.comment_
+        from trainingCards
+        left join athletes on trainingcards.athletes_fk = athletes.athletes_id
+        inner join cardsComposition on trainingCards.trainingCards_id = cardsComposition.trainingCards_fk
+        inner join exercises on cardsComposition.exercises_fk = exercises.exercises_id
+        where athletes.athletes_id = '%s'""" % (id)
+    
+    cursor.execute(sql)
+    cards = cursor.fetchall()
+
+    schede=[]
+
+    numeroschede = 0
+
+    for c in cards:
+        scheda = TrainingCardsWeb (c[0],c[1],c[2],c[3],c[4],c[5],c[6],c[7],c[8],c[9])
+        schede.append(scheda)
+        numeroschede = numeroschede + 1
+
+    return render_template("schede.html", schede = schede)
+
+'''
+@app.route('/showcards')
+def showCard():
     return render_template("schede.html")
 
+
 # PER SITO WEB
-@app.route('/showcards', methods = ['GET'])
+@app.route('/showcardsJson', methods = ['GET'])
 def showCardJson():
+    print("passaggio1")
 
 # id utente, vede tutte schede in base a id utente. vedo tutti i card composition di tutte le schede.
 
@@ -155,8 +186,10 @@ def showCardJson():
         schede.append(scheda)
         numeroschede = numeroschede + 1
 
+    # return {schede}
     return json.dumps(schede, default=vars)
     # return render_template("my_account.html", datiSchede = schede, nSchede = numeroschede)
+    '''
 
 
 ''' vecchio codice per capire
