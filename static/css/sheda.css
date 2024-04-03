@@ -1,17 +1,120 @@
-.title_schede {
+.menu__burger {
+  -ms-flex-item-align: center;
+      align-self: center;
+  padding: 0 10px;
+}
+.menu__burger a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+
+.link_account {
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.link_account:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#FF2625), to(#FF2625));
+  background: linear-gradient(#FF2625, #FF2625);
+  -webkit-transition: width 0.3s;
+  transition: width 0.3s;
+}
+
+.link_account:hover::after {
+  width: 100%;
+}
+
+.tutti-schede {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.title_schede {
+  padding: 35px 0 15px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 28px;
+}
+
+.scheda-block {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 33.333333%;
+          flex: 1 1 33.333333%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0 20px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
 }
+@media (max-width: 1000px) {
+  .scheda-block {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 50%;
+            flex: 1 1 50%;
+  }
+}
+@media (max-width: 650px) {
+  .scheda-block {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+    padding: 0;
+  }
+}
 
 .btn_modal {
-  background: #FF2625;
-  width: auto;
+  -ms-flex-item-align: center;
+      align-self: center;
+  background: #FFF3F4;
+  color: black;
+  width: 100%;
   display: block;
-  margin: 30px;
+  margin: 15px;
+  min-height: 200px;
+  border-radius: 25px;
+  position: relative;
+}
+
+.btn_modal::before {
+  content: url("../img/ico/apici.svg");
+  bottom: 50%;
+  right: 50%;
+  -webkit-transform: translate(50%, 50%);
+      -ms-transform: translate(50%, 50%);
+          transform: translate(50%, 50%);
+  position: absolute;
+}
+
+.btn_modal::after {
+  content: url("../img/ico/Arrow.svg");
+  bottom: -10px;
+  right: 15px;
+  position: absolute;
 }
 
 .dettagli {
@@ -29,11 +132,26 @@
 
 .modal_container {
   display: table;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .modal {
+    --bs-modal-padding: 0rem;
+  }
 }
 
 .modal_box {
-  width: 1000px;
-  height: 639px;
+  width: 80vw;
+  height: 95vh;
+  max-width: 100%;
+  max-height: 639px;
+}
+@media (max-width: 768px) {
+  .modal_box {
+    width: 100vw;
+    padding: 10px;
+  }
 }
 
 table,
@@ -56,36 +174,65 @@ td {
       justify-content: space-around;
 }
 
-.menu__burger {
+#exampleModal {
+  overflow: hidden;
+}
+
+.info_scheda {
+  text-align: center;
   -ms-flex-item-align: center;
       align-self: center;
-}
-.menu__burger a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 10px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.modal {
+  --bs-modal-margin: 1rem 0rem 0rem 0rem;
+}
+.modal_table {
+  width: 100%;
+}
+.modal_table th,
+.modal_table td {
+  max-width: 100%;
+}
+.modal_table th {
   padding: 5px;
-  height: 60px;
 }
-.menu__burger a span {
-  line-height: 100%;
+.modal_table td {
+  text-align: center;
 }
-
-.link_account {
-  text-decoration: none;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#FF2625), to(#FF2625));
-  background-image: linear-gradient(#FF2625, #FF2625);
-  background-position: 0% 100px;
-  background-repeat: no-repeat;
-  background-size: 0% 2px;
-  -webkit-transition: background-size 0.3s;
-  transition: background-size 0.3s;
+.modal_table .row-name th,
+.modal_table .row-name td {
+  text-align: center;
+}
+@media (max-width: 768px) {
+  .modal_table .row-name th,
+  .modal_table .row-name td {
+    font-size: 18px;
+  }
 }
 
-.link_account:hover {
-  background-size: 100% 2px;
+.row {
+  margin-left: 0;
+}
+
+.modal-footer button {
+  color: #4F95DA;
+}
+
+.commento,
+.container {
+  margin: 0;
+  padding: 10px;
+  gap: 10px;
+}
+.commento .p_commento,
+.container .p_commento {
+  margin-bottom: 0;
 }

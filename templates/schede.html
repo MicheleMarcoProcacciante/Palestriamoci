@@ -16,6 +16,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="icon" href="/static/img/logo/logoRed.ico">
+    <script src="../static/js/fetch.js" defer></script>
 </head>
 
 <body>
@@ -27,9 +28,7 @@
                 </div>
                 <ul class="menu__items">
                     <li class="menu__item"><a class="link" href="index">Casa</a></li>
-                    <!-- <li class="menu__item"><a class="link" href="my_account.html">Il Mio Account</a></li> -->
                     <li class="menu__item"><a class="link" href="index#dreamTeam">Chi Siamo</a></li>
-                    <!-- <li class="menu__item"><a class="link" href="#">Contatti</a></li> -->
                 </ul>
                 <div class="menu__burger">
                     <a href="account"><span class="link_account">My account</span><img src="../static/img/ico/login.png"
@@ -38,198 +37,539 @@
             </menu>
         </div>
     </header>
-    <div class="title_schede container-fluid">
-        <h1>
-            Le Tue Schede
-        </h1>
-    </div>
+    <main class="main-schede">
+        <div class="main-schede__container">
+            <div class="title_schede container-fluid titles-main__subTitle">
+                <h1>
+                    __Le Tue Schede
+                </h1>
+            </div>
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary  btn_modal" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        <span>Nome scheda: {{.name}} </span>
-        <span>Data Creazione: {{.data_sheda}}</span>
-    </button>
+            <div class="tutti-schede">
+                <div class="scheda-block">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary  btn_modal" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal1">
+                        <span>Nome scheda: Il mio primo
+                            allenamento</span>
+                        <span> / </span>
+                        <span>Data Creazione: 22/11/2222</span>
+                    </button>
 
-    <!-- Modal -->
-    <div class="modal fade modal-dialog-scrollable" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal_container">
-            <div class="modal-content modal_box">
-                <div class="modal-header info_scheda">
-                    <h3 class="modal-title title_modal fs-5" id="exampleModalLabel"> Nome scheda: {{.name}} </h3>
-                    <h1 class="modal-title title_modal fs-5" id="exampleModalLabel">Data Creazione:22/11/2222
-                        <!--Data creazione scheda-->
-                    </h1>
-                </div>
+                    <!-- Modal -->
+                    <div class="modal fade modal-dialog-scrollable" id="exampleModal1" tabindex="-1"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal_container">
+                            <div class="modal-content modal_box">
+                                <div class="modal-header info_scheda">
+                                    <h3 class="modal-title title_modal fs-5" id="exampleModalLabel"> Nome scheda: Il mio
+                                        primo
+                                        allenamento</h3>
+                                    <p class="modal-title title_modal fs-5" id="exampleModalLabel">Data Creazione:
+                                        22/11/2222
+                                    </p>
+                                </div>
 
-                <div class="modal-body container_modal_body">
-                    <table class="modal_table">
-                        <tr class="col">
-                            <th>Esercizio</th>
-                            <th>Serie (N°)</th>
-                            <th>Ripetizioni (N°)</th>
-                            <th>Carico (KG)</th>
-                            <th>Ripresa (sec)</th>
-                            <th>Durata Esercizio (Tempo)</th>
-                        </tr>
-                        <tr class="col">
-                            <th class="row exercise_name">Pesi</th>
-                            <td>ciao</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>ciao</td>
-                        </tr>
-                        <tr class="col">
-                            <th class="row exercise_name">Pesi</th>
-                            <td>ciao</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>ciao</td>
-                        </tr>
-                        <tr class="col">
-                            <th class="row exercise_name">Pesi</th>
-                            <td>ciao</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>ciao</td>
-                        </tr>
-                        <tr class="col">
-                            <th class="row exercise_name">Pesi</th>
-                            <td>ciao</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>ciao</td>
-                        </tr>
-                        <tr class="col">
-                            <th class="row exercise_name">Pesi</th>
-                            <td>ciao</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>ciao</td>
-                        </tr>
-                        <tr class="col">
-                            <th class="row exercise_name">Pesi</th>
-                            <td>ciao</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>ciao</td>
-                        </tr>
-                        <tr class="col">
-                            <th class="row exercise_name">Pesi</th>
-                            <td>ciao</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>ciao</td>
-                        </tr>
-                        <tr class="col">
-                            <th class="row exercise_name">Pesi</th>
-                            <td>ciao</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>ciao</td>
-                        </tr>
-                        <tr class="col">
-                            <th class="row exercise_name">Pesi</th>
-                            <td>ciao</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>ciao</td>
-                        </tr>
-                        <tr class="col">
-                            <th class="row exercise_name">Pesi</th>
-                            <td>ciao</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>ciao</td>
-                        </tr>
-                        <tr class="col">
-                            <th class="row exercise_name">Pesi</th>
-                            <td>ciao</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>ciao</td>
-                        </tr>
-                        <tr class="col">
-                            <th class="row exercise_name">Pesi</th>
-                            <td>ciao</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>ciao</td>
-                        </tr>
-                        <tr class="col">
-                            <th class="row exercise_name">Pesi</th>
-                            <td>ciao</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>ciao</td>
-                        </tr>
-                        <tr class="col">
-                            <th class="row exercise_name">Pesi</th>
-                            <td>ciao</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>ciao</td>
-                        </tr>
-                        <tr class="col">
-                            <th class="row exercise_name">Pesi</th>
-                            <td>ciao</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>ciao</td>
-                        </tr>
-                        <tr class="col">
-                            <th class="row exercise_name">Pesi</th>
-                            <td>ciao</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>ciao</td>
-                        </tr>
-                        <tr class="col">
-                            <th class="row exercise_name">Pesi</th>
-                            <td>ciao</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>ciao</td>
-                        </tr>
-                        <tr class="col">
-                            <th class="row exercise_name">Pesi</th>
-                            <td>ciao</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>Germany</td>
-                            <td>ciao</td>
-                        </tr>
-                    </table>
+                                <div class="modal-body container_modal_body">
+                                    <table class="modal_table">
+                                        <tr class="col row-name">
+                                            <th>Esercizio</th>
+                                            <th>Serie (N°)</th>
+                                            <th>Ripetiz. (N°)</th>
+                                            <th>Carico (KG)</th>
+                                            <th>Ripresa (min)</th>
+                                            <th>Durata Esercizio (min)</th>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere Lorem ipsum dolor sit amet consectetur,
+                                                adipisicing elit. Modi saepe obcaecati libero cupiditate veritatis fuga
+                                                cum nostrum, ab, quas omnis, repellendus quidem architecto praesentium
+                                                vitae. Ea accusamus laboriosam atque ducimus.</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="commento container">
+                                    <h2>Commento</h2>
+                                    <p class="p_commento">
+                                        RPE7 nell'ultima serie di panca reale. 1 ripetizione in meno sul top set di
+                                        legextension
+                                        lore
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="commento container">
-                    <h2>Commento</h2>
-                    <p class="p_commento">
-                        RPE7 nell'ultima serie di panca reale. 1 ripetizione in meno sul top set di legextension
-                    </p>
+                <div class="scheda-block">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary  btn_modal" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal2">
+                        <span>Nome scheda: Il mio primo
+                            allenamento</span>
+                        <span> / </span>
+                        <span>Data Creazione: 22/11/2222</span>
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade modal-dialog-scrollable" id="exampleModal2" tabindex="-1"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal_container">
+                            <div class="modal-content modal_box">
+                                <div class="modal-header info_scheda">
+                                    <h3 class="modal-title title_modal fs-5" id="exampleModalLabel"> Nome scheda: Il mio
+                                        primo
+                                        allenamento</h3>
+                                    <p class="modal-title title_modal fs-5" id="exampleModalLabel">Data Creazione:
+                                        22/11/2222
+                                    </p>
+                                </div>
+
+                                <div class="modal-body container_modal_body">
+                                    <table class="modal_table">
+                                        <tr class="col row-name">
+                                            <th>Esercizio</th>
+                                            <th>Serie (N°)</th>
+                                            <th>Ripetiz. (N°)</th>
+                                            <th>Carico (KG)</th>
+                                            <th>Ripresa (min)</th>
+                                            <th>Durata Esercizio (min)</th>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="commento container">
+                                    <h2>Commento</h2>
+                                    <p class="p_commento">
+                                        RPE7 nell'ultima serie di panca reale. 1 ripetizione in meno sul top set di
+                                        legextension
+                                        lore
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn_modal" data-bs-dismiss="modal">Close</button>
+                <div class="scheda-block">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary  btn_modal" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal3">
+                        <span>Nome scheda: Il mio primo
+                            allenamento3</span>
+                        <span> / </span>
+                        <span>Data Creazione: 22/11/2222</span>
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade modal-dialog-scrollable" id="exampleModal3" tabindex="-1"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal_container">
+                            <div class="modal-content modal_box">
+                                <div class="modal-header info_scheda">
+                                    <h3 class="modal-title title_modal fs-5" id="exampleModalLabel"> Nome scheda: Il mio
+                                        primo
+                                        allenamento 3</h3>
+                                    <p class="modal-title title_modal fs-5" id="exampleModalLabel">Data Creazione:
+                                        22/11/2222
+                                    </p>
+                                </div>
+
+                                <div class="modal-body container_modal_body">
+                                    <table class="modal_table">
+                                        <tr class="col row-name">
+                                            <th>Esercizio</th>
+                                            <th>Serie (N°)</th>
+                                            <th>Ripetiz. (N°)</th>
+                                            <th>Carico (KG)</th>
+                                            <th>Ripresa (min)</th>
+                                            <th>Durata Esercizio (min)</th>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere </th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                        <tr class="col">
+                                            <th>Affondi in camminata bilanciere</th>
+                                            <td>3</td>
+                                            <td>10</td>
+                                            <td>300</td>
+                                            <td>5</td>
+                                            <td>3</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="commento container">
+                                    <h2>Commento</h2>
+                                    <p class="p_commento">
+                                        RPE7 nell'ultima serie di panca reale. 1 ripetizione in meno sul top set di
+                                        legextension
+                                        lore
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
-    </div>
+    </main>
+
 </body>
 
 </html>

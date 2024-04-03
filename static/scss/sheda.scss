@@ -1,13 +1,97 @@
-.title_schede {
+// ===================================== header
+.menu {
+
+    // .menu__burger
+    &__burger {
+        align-self: center;
+        padding: 0 10px;
+
+        a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    }
+}
+
+.link_account {
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.link_account:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(#FF2625, #FF2625);
+    transition: width .3s;
+}
+
+.link_account:hover::after {
+    width: 100%;
+}
+
+// =============================== shede
+.tutti-schede {
     display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.title_schede {
+    padding: 35px 0 15px 0;
+    display: flex;
+
+    justify-content: space-between;
+    font-size: 28px;
+}
+
+.scheda-block {
+    flex: 1 1 33.333333%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
     justify-content: center;
+
+    @media (max-width: 1000px) {
+        flex: 1 1 50%;
+    }
+
+    @media (max-width: 650px) {
+        flex: 1 1 100%;
+        padding: 0;
+    }
 }
 
 .btn_modal {
-    background: #FF2625;
-    width: auto;
+    align-self: center;
+    background: #FFF3F4;
+    color: black;
+    width: 100%;
     display: block;
-    margin: 30px;
+    margin: 15px;
+    min-height: 200px;
+    border-radius: 25px;
+    position: relative;
+
+}
+
+.btn_modal::before {
+    content: url("../img/ico/apici.svg");
+    bottom: 50%;
+    right: 50%;
+    transform: translate(50%, 50%);
+    position: absolute;
+}
+
+.btn_modal::after {
+    content: url("../img/ico/Arrow.svg");
+    bottom: -10px;
+    right: 15px;
+    position: absolute;
 }
 
 .dettagli {
@@ -21,11 +105,26 @@
 
 .modal_container {
     display: table;
+    width: 100%;
+}
+
+.modal {
+
+    @media (max-width: 768px) {
+        --bs-modal-padding: 0rem;
+    }
 }
 
 .modal_box {
-    width: 1000px;
-    height: 639px;
+    width: 80vw;
+    height: 95vh;
+    max-width: 100%;
+    max-height: 639px;
+
+    @media (max-width: 768px) {
+        width: 100vw;
+        padding: 10px;
+    }
 }
 
 table,
@@ -47,38 +146,84 @@ td {
     justify-content: space-around;
 }
 
-.menu {
+#exampleModal {
+    overflow: hidden;
+}
+
+.info_scheda {
+    text-align: center;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+}
 
 
-    // .menu__burger
-    &__burger {
-        align-self: center;
+
+// =============================== shede
+.modal {
+    --bs-modal-margin: 1rem 0rem 0rem 0rem;
 
 
-        a {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+
+    // .modal_table
+    &_table {
+        width: 100%;
+
+        th,
+        td {
+            max-width: 100%;
+        }
+
+        th {
             padding: 5px;
-            height: 60px;
+        }
 
-            span {
+        td {
+            text-align: center;
+        }
 
-                line-height: 100%;
+        .row-name {
+
+            th,
+            td {
+                text-align: center;
+
+                @media (max-width: 768px) {
+                    font-size: 18px;
+                }
             }
         }
     }
 }
 
-.link_account {
-    text-decoration: none;
-    background-image: linear-gradient(#FF2625, #FF2625);
-    background-position: 0% 100px;
-    background-repeat: no-repeat;
-    background-size: 0% 2px;
-    transition: background-size .3s;
+
+.col {}
+
+.row {
+    margin-left: 0;
 }
 
-.link_account:hover {
-    background-size: 100% 2px;
+.exercise {
+
+    // .exercise_name
+    &_name {}
+}
+
+.modal-footer {
+
+
+    button {
+        color: #4F95DA;
+    }
+}
+
+.commento,
+.container {
+    margin: 0;
+    padding: 10px;
+    gap: 10px;
+
+    .p_commento {
+        margin-bottom: 0;
+    }
 }
