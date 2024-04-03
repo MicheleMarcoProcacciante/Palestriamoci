@@ -237,6 +237,11 @@ svg {
     &__burger {
         align-self: center;
 
+
+        a {
+            line-height: 100%;
+        }
+
         img {
             max-width: 40px;
             height: auto;
@@ -724,6 +729,7 @@ td {
 .commento {
     padding: 16px;
 }
-.p_commento{
+
+.p_commento {
     word-wrap: break-word;
 }

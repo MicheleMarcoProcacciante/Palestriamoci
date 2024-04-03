@@ -1,0 +1,91 @@
+.title_schede {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.btn_modal {
+  background: #FF2625;
+  width: auto;
+  display: block;
+  margin: 30px;
+}
+
+.dettagli {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  right: 5px;
+}
+
+.contenuto {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.modal_container {
+  display: table;
+}
+
+.modal_box {
+  width: 1000px;
+  height: 639px;
+}
+
+table,
+th,
+td {
+  border: 0.5px solid black;
+}
+
+.ex_name {
+  margin: 0;
+}
+
+.row {
+  border: none;
+}
+
+.title_modal {
+  display: inline;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.menu__burger {
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+.menu__burger a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  padding: 5px;
+  height: 60px;
+}
+.menu__burger a span {
+  line-height: 100%;
+}
+
+.link_account {
+  text-decoration: none;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#FF2625), to(#FF2625));
+  background-image: linear-gradient(#FF2625, #FF2625);
+  background-position: 0% 100px;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  -webkit-transition: background-size 0.3s;
+  transition: background-size 0.3s;
+}
+
+.link_account:hover {
+  background-size: 100% 2px;
+}

@@ -46,3 +46,39 @@ td {
     display: inline;
     justify-content: space-around;
 }
+
+.menu {
+
+
+    // .menu__burger
+    &__burger {
+        align-self: center;
+
+
+        a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 5px;
+            height: 60px;
+
+            span {
+
+                line-height: 100%;
+            }
+        }
+    }
+}
+
+.link_account {
+    text-decoration: none;
+    background-image: linear-gradient(#FF2625, #FF2625);
+    background-position: 0% 100px;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size .3s;
+}
+
+.link_account:hover {
+    background-size: 100% 2px;
+}
