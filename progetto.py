@@ -49,7 +49,7 @@ def login():
 
         session["id_loggeduser"] = atleta.id
 
-        return redirect ("/account")
+        return redirect ("/showcards")
     
     except:
         # notifica di errore
@@ -100,7 +100,6 @@ def dettaglio():
 
 @app.route('/account', methods = ['POST'])
 def update():
-    print ("setp 0.5")
 
     id = session["id_loggeduser"]
 
@@ -108,10 +107,11 @@ def update():
     password = request.form['inputPassword']
     name = request.form['inputNome']
     surname = request.form['inputCognome']
+    date_of_birth = request.form['inputDate']
 
 
     cursor.execute(f"""update athletes
-                set email = '{email}', password_ = '{password}', name_ = '{name}', surname = '{surname}'
+                set email = '{email}', password_ = '{password}', name_ = '{name}', surname = '{surname}', date_of_birth = '{date_of_birth}'
                 where athletes_id = {id}""")
 
 
@@ -121,9 +121,13 @@ def update():
 
 
 
+@app.route('/showcards')
+def showCard():
+    return render_template("schede.html")
+
 # PER SITO WEB
 @app.route('/showcards', methods = ['GET'])
-def showCard():
+def showCardJson():
 
 # id utente, vede tutte schede in base a id utente. vedo tutti i card composition di tutte le schede.
 
