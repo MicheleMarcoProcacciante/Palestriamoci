@@ -57,6 +57,32 @@ def login():
     return json.dumps(atleta, default=vars)
 
 
+@app.route('/api/login', methods = ['POST'])
+def showLoginAndroidJson():
+    email = request.form.get('inputEmail')
+    password = request.form.get('inputPassword')
+
+    # email = request.form['inputEmail']
+    # password = request.form['inputPassword']
+    atleta = None
+
+    try:
+        sql = "select * from athletes where email = '%s' AND password_ = '%s'" % (email,password)
+        cursor.execute(sql)
+        row = cursor.fetchone()
+
+        atleta = Athletes (row[0],row[1],row[2],row[3],row[4],row[5])        
+
+        # session["id_loggeduser"] = atleta.id
+
+        return json.dumps(atleta, default=vars)
+    
+    except:
+
+        return json.dumps(atleta, default=vars)
+        # return json.dumps(STRINGA ERRORE), 203
+
+
 
 @app.route('/register', methods = ['GET'])
 def getRegister():
@@ -81,6 +107,41 @@ def register():
     return redirect ("/account")
 
     #return render_template("buttare.html", datiHtmlNome = name, datiHtmlCognome = surname, datiHtmlEmail = email, datiHtmlPassword = password)
+
+@app.route('/api/register', methods = ['POST'])
+def registerAndroid():
+
+    email = request.form.get('inputEmail')
+    password = request.form['inputPassword']
+    name = request.form['inputNome']
+    surname = request.form['inputCognome']
+    date_of_birth = request.form['inputDate']
+
+    sql = "select email from athletes where email = '%s'" % (email)
+    cursor.execute(sql)
+    emailCheck = cursor.fetchone()
+    
+    if emailCheck == None:
+
+        atleta = None
+
+        cursor.execute(f"""insert into athletes (email, password_, name_, surname, date_of_birth) values ('{email}', '{password}',
+                    '{name}','{surname}','{date_of_birth}')""")
+        
+        sql = "select * from athletes where email = '%s' AND password_ = '%s'" % (email,password)
+        cursor.execute(sql)
+        row = cursor.fetchone()
+
+        atleta = Athletes (row[0],row[1],row[2],row[3],row[4],row[5])   
+        
+        # capire cosa serve
+        # cursor.connection.commit()
+
+        return json.dumps(atleta, default=vars)
+    
+    else:
+
+        return jsonify ("Errore"), 203
 
 
 
@@ -158,10 +219,6 @@ def showCard():
 # PER SITO WEB
 @app.route('/showcardsJson', methods = ['GET'])
 def showCardJson():
-    # print("passaggio1")
-
-# id utente, vede tutte schede in base a id utente. vedo tutti i card composition di tutte le schede.
-
     id = session["id_loggeduser"]
     # id = 1
 
@@ -189,6 +246,60 @@ def showCardJson():
     # return {schede}
     return json.dumps(schede, default=vars)
     # return render_template("my_account.html", datiSchede = schede, nSchede = numeroschede)
+
+
+@app.route('/api/showcards')
+def showCardAndroidJson():
+    id = session["id_loggeduser"]
+    # id = 1
+
+    sql = """select trainingCards.trainingCards_id, trainingCards.name_table, trainingCards.date_
+        from trainingCards
+        left join athletes on trainingcards.athletes_fk = athletes.athletes_id
+        where athletes.athletes_id = '%s'""" % (id)
+    
+    cursor.execute(sql)
+    cards = cursor.fetchall()
+
+    schede=[]
+
+    # numeroschede = 0
+
+    for c in cards:
+        scheda = TrainingCardsAndroid (c[0],c[1],c[2])
+        schede.append(scheda)
+        # numeroschede = numeroschede + 1
+
+    return json.dumps(schede, default=vars)
+
+
+@app.route('/api/showexercises')
+def showExercisesAndroidJson():
+    # serve id scheda
+
+    # id = session["id_loggeduser"]
+    # id = 1
+
+    sql = """select trainingCards.trainingCards_id, trainingCards.name_table, trainingCards.date_, exercises.exercise_name,
+        cardsComposition.series, cardsComposition.reps, cardsComposition.loads,cardsComposition.rest,
+        cardsComposition.duration, trainingCards.comment_
+        from trainingCards
+        left join athletes on trainingcards.athletes_fk = athletes.athletes_id
+        inner join cardsComposition on trainingCards.trainingCards_id = cardsComposition.trainingCards_fk
+        inner join exercises on cardsComposition.exercises_fk = exercises.exercises_id
+        where trainingCards.trainingCards_id = '%s'""" % (id)
+    
+    cursor.execute(sql)
+    cards = cursor.fetchall()
+
+    schede=[]
+
+    for c in cards:
+        scheda = TrainingCardsWeb (c[0],c[1],c[2],c[3],c[4],c[5],c[6],c[7],c[8],c[9])
+        schede.append(scheda)
+
+    # return {schede}
+    return json.dumps(schede, default=vars)
     
 
 
