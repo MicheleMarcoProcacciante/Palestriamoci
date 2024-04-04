@@ -120,10 +120,10 @@ def register():
 def registerAndroid():
 
     email = request.form.get('inputEmail')
-    password = request.form['inputPassword']
-    name = request.form['inputNome']
-    surname = request.form['inputCognome']
-    date_of_birth = request.form['inputDate']
+    password = request.form.get('inputPassword')
+    name = request.form.get('inputNome')
+    surname = request.form.get('inputCognome')
+    date_of_birth = request.form.get('inputDate')
 
     sql = "select email from athletes where email = '%s'" % (email)
     cursor.execute(sql)
