@@ -1,3 +1,26 @@
+.wrapper_account {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.main__log-in {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 .log-in {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -10,6 +33,9 @@
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 .log-in .logo {
   width: 44px;
@@ -41,43 +67,16 @@ ul {
       -ms-flex-align: center;
           align-items: center;
 }
-.access_text {
-  font-size: 44px;
-  font-weight: 700;
-}
-
-.color-red {
-  color: #FF2625;
-}
-
-.container {
-  margin: 20px 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  gap: 20px;
-}
-.container * {
-  -ms-flex-item-align: center;
-      align-self: center;
-  width: 100%;
-}        flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
 
 .access_text {
   text-align: center;
   font-size: 44px;
   font-weight: 700;
+}
+@media (max-width: 370px) {
+  .access_text {
+    font-size: 34px;
+  }
 }
 
 .container {
@@ -106,10 +105,52 @@ ul {
   width: 100%;
 }
 
+.col-5 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  width: 100%;
+}
+
+.col-auto {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.col-8 {
+  max-width: 500px;
+}
+
+.btn_sign-ing {
+  max-width: 500px;
+}
+
+.account__userData .container .btn {
+  /* width: 500px; */
+}
+@media (max-width: 550px) {
+  .account__userData .container .btn {
+    max-width: 250px;
+  }
+}
+
 .col2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15px;
+}
+@media (max-width: 650px) {
+  .col2 {
+    grid-template-columns: 1fr;
+  }
 }
 
 #inputPassword {
@@ -136,8 +177,20 @@ ul {
   -ms-flex-item-align: start;
       align-self: start;
 }
+@media (max-width: 680px) {
+  .account__image {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+  }
+}
 .account__image img {
   max-width: 200px;
+}
+@media (max-width: 800px) {
+  .account__image img {
+    max-width: 100px;
+  }
 }
 .account__userData {
   width: 100%;
@@ -149,6 +202,15 @@ ul {
           justify-content: center;
   gap: 50px;
 }
+@media (max-width: 680px) {
+  .account__userData {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 0px;
+  }
+}
 .account__userData .container {
   width: 500px;
 }
@@ -159,4 +221,13 @@ ul {
 
 #btn_accedi .btn {
   width: 100%;
+}
+
+@media (max-width: 550px) {
+  .col-account .col-8 {
+    width: 50%;
+  }
+  .col-account .col-8 .col-8 {
+    width: 100%;
+  }
 }

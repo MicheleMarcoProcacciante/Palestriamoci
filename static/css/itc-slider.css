@@ -13,6 +13,16 @@
       align-self: center;
   text-align: center;
 }
+@media (max-width: 1150px) {
+  .carousel {
+    max-width: 900px;
+  }
+}
+@media (max-width: 950px) {
+  .carousel {
+    max-width: 450px;
+  }
+}
 
 .itc-slider {
   position: relative;
@@ -62,6 +72,20 @@
       align-content: center;
   gap: 10px;
 }
+@media (max-width: 1150px) {
+  .itc-slider-item {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+  }
+}
+@media (max-width: 950px) {
+  .itc-slider-item {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+  }
+}
 
 .itc-slider-item__image {
   height: 100%;
@@ -99,7 +123,7 @@
 /* кнопки влево и вправо */
 .itc-slider-btn {
   position: absolute;
-  top: 50%;
+  top: 45%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

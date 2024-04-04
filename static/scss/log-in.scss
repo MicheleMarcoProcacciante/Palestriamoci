@@ -52,6 +52,10 @@ ul {
         text-align: center;
         font-size: 44px;
         font-weight: 700;
+
+        @media (max-width: 370px) {
+            font-size: 34px;
+        }
     }
 }
 
@@ -74,11 +78,22 @@ ul {
     width: 100%;
 }
 
-.col-5 {}
+.col-5 {
+    flex: 0 0 auto;
+    width: 100%;
+}
 
-.col-auto {}
+.col-auto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
-.col-8 {}
+
+
+.col-8 {
+    max-width: 500px;
+}
 
 .col-form-label {}
 
@@ -92,12 +107,32 @@ ul {
     &_log-in {}
 }
 
+.btn_sign-ing {
+    max-width: 500px;
+
+
+}
+
+.account__userData .container .btn {
+    /* width: 500px; */
+
+    @media (max-width: 550px) {
+        max-width: 250px;
+    }
+}
+
 .mb-3 {}
 
 .col2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
+
+
+    @media (max-width: 650px) {
+        grid-template-columns: 1fr;
+    }
+
 }
 
 // ==============PASSWORD===============
@@ -128,8 +163,18 @@ ul {
         margin-top: 60px;
         align-self: start;
 
+        @media (max-width: 680px) {
+            width: 100%;
+            text-align: center;
+            margin-top: 30px;
+        }
+
         img {
             max-width: 200px;
+
+            @media (max-width: 800px) {
+                max-width: 100px;
+            }
         }
     }
 
@@ -140,8 +185,14 @@ ul {
         justify-content: center;
         gap: 50px;
 
+        @media (max-width: 680px) {
+            flex-direction: column;
+            gap: 0px;
+        }
+
         .container {
             width: 500px;
+
         }
     }
 }
@@ -155,4 +206,18 @@ ul {
     .btn {
         width: 100%;
     }
+}
+
+.col-account .col-8 {
+
+    @media (max-width: 550px) {
+        width: 50%;
+
+        .col-8 {
+            width: 100%;
+        }
+    }
+
+
+
 }

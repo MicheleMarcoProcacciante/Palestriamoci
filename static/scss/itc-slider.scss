@@ -11,6 +11,14 @@
     max-width: 1100px;
     align-self: center;
     text-align: center;
+
+    @media (max-width: 1150px) {
+        max-width: 900px;
+    }
+
+    @media (max-width: 950px) {
+        max-width: 450px;
+    }
 }
 
 
@@ -47,6 +55,13 @@
     align-content: center;
     gap: 10px;
 
+    @media (max-width: 1150px) {
+        flex: 0 0 50%;
+    }
+
+    @media (max-width: 950px) {
+        flex: 0 0 100%;
+    }
 }
 
 .itc-slider-item__image {
@@ -80,7 +95,7 @@
 /* кнопки влево и вправо */
 .itc-slider-btn {
     position: absolute;
-    top: 50%;
+    top: 45%;
     display: flex;
     justify-content: center;
     align-items: center;

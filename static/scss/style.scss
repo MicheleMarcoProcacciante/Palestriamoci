@@ -206,6 +206,7 @@ svg {
 
     display: flex;
     font-size: 24px;
+    padding: 0 20px;
 
     @media (max-width: 900px) {
         justify-content: space-between;
@@ -281,6 +282,11 @@ svg {
         @media (max-width: 1150px) {
             flex-direction: column;
             padding: 0px 10px 150px 10px;
+        }
+
+        @media (max-width: 600px) {
+            flex-direction: column;
+            padding: 0px 10px 75px 10px;
         }
 
     }
@@ -611,6 +617,10 @@ svg {
         grid-template-columns: 150px 1fr;
         align-items: center;
         gap: 20px;
+
+        @media (max-width: 1150px) {
+            grid-template-columns: 1fr;
+        }
     }
 
     // .footer__logo
