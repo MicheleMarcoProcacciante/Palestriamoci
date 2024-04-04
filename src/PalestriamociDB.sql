@@ -150,13 +150,13 @@ values
 
 insert into cardsComposition (trainingCards_fk, exercises_fk, series, reps, loads, rest, duration)
 values
-   	(1, 1,"2","30","60kg", "1minuti","3minuti"),
-	(1, 2,"5","42","95kg", "3minuti","/"),
-	(1, 3,"8","50","300kg", "7minuti","8minuti"),
- 	(2, 2, "4","10","50kg","3minuti","5minuti"),
- 	(3, 3, "1","5","30kg","20minuti","3minuti"),
- 	(4, 2, "10","100","5kg","3minuti","5minuti"),
- 	(5, 5, "23","10","30kg","20minuti","3minuti");
+   	(1, 1,"2","30","60kg", "1","3"),
+	(1, 2,"5","42","95kg", "3","/"),
+	(1, 3,"8","50","300kg", "7","8"),
+ 	(2, 2, "4","10","50kg","3","5"),
+ 	(3, 3, "1","5","30kg","20","3"),
+ 	(4, 2, "10","100","5kg","3","5"),
+ 	(5, 5, "23","10","30kg","20","3");
 
 /*query per ottenere tutte le cards di un singolo utente
 (endpoint allenamenti svolti)*/
@@ -197,7 +197,7 @@ from athletes;
 
 update athletes
 set email = "value1@abc.it", password_ = "value2", name_ = "value3", surname = "value4", date_of_birth = 20221010
-where athletes_id = 1;
+where athletes_id = 3;
 
 select *
 from athletes;
