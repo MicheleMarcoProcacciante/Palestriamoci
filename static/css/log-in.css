@@ -80,7 +80,7 @@ ul {
 }
 
 .container {
-  margin: 20px 0;
+  padding: 20px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -174,13 +174,11 @@ ul {
 }
 .account__image {
   margin-top: 60px;
-  -ms-flex-item-align: start;
-      align-self: start;
+  text-align: center;
 }
 @media (max-width: 680px) {
   .account__image {
     width: 100%;
-    text-align: center;
     margin-top: 30px;
   }
 }
@@ -194,40 +192,20 @@ ul {
 }
 .account__userData {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 50px;
+  gap: 0px;
 }
-@media (max-width: 680px) {
+@media (max-width: 1150px) {
   .account__userData {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    grid-template-columns: 1fr;
     gap: 0px;
   }
 }
-.account__userData .container {
-  width: 500px;
-}
-
 .col-8 {
-  position: relative;
-}
-
-#btn_accedi .btn {
   width: 100%;
-}
-
-@media (max-width: 550px) {
-  .col-account .col-8 {
-    width: 50%;
-  }
-  .col-account .col-8 .col-8 {
-    width: 100%;
-  }
+  position: relative;
 }

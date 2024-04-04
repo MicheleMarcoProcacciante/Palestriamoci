@@ -17,6 +17,11 @@
   position: relative;
   padding-bottom: 5px;
 }
+@media (max-width: 350px) {
+  .link_account {
+    display: none;
+  }
+}
 
 .link_account:after {
   content: "";
@@ -33,6 +38,12 @@
 
 .link_account:hover::after {
   width: 100%;
+}
+
+.main-schede {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
 }
 
 .tutti-schede {
@@ -231,6 +242,7 @@ td {
   margin: 0;
   padding: 10px;
   gap: 10px;
+  text-align: left;
 }
 .commento .p_commento,
 .container .p_commento {

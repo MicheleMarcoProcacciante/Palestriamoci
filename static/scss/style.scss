@@ -10,7 +10,8 @@ body {
 }
 
 .wrapper {
-    overflow: hidden;
+    // overflow: hidden;
+    height: 100%;
 
     // .wrapper__container
     &__container {}

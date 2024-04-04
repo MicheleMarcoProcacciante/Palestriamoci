@@ -61,7 +61,7 @@ ul {
 
 // ==============Form===============
 .container {
-    margin: 20px 0;
+    padding: 20px 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -160,13 +160,15 @@ ul {
 
     // .account__image
     &__image {
+        // transform: translate(50%);
         margin-top: 60px;
-        align-self: start;
+        // align-self: center;
+        text-align: center;
 
         @media (max-width: 680px) {
             width: 100%;
-            text-align: center;
             margin-top: 30px;
+
         }
 
         img {
@@ -181,42 +183,44 @@ ul {
     // .account__userData
     &__userData {
         width: 100%;
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         justify-content: center;
-        gap: 50px;
+        gap: 0px;
 
-        @media (max-width: 680px) {
-            flex-direction: column;
+        @media (max-width: 1150px) {
+            grid-template-columns: 1fr;
             gap: 0px;
         }
 
         .container {
-            width: 500px;
+            // width: 500px;
 
         }
     }
 }
 
 .col-8 {
+    width: 100%;
     position: relative;
 }
 
 #btn_accedi {
 
-    .btn {
-        width: 100%;
-    }
+    // .btn {
+    //     width: 100%;
+    // }
 }
 
 .col-account .col-8 {
 
-    @media (max-width: 550px) {
-        width: 50%;
+    // @media (max-width: 550px) {
+    //     width: 50%;
 
-        .col-8 {
-            width: 100%;
-        }
-    }
+    //     .col-8 {
+    //         width: 100%;
+    //     }
+    // }
 
 
 
