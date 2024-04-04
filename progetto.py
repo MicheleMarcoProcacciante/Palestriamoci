@@ -88,26 +88,34 @@ def showLoginAndroidJson():
 def getRegister():
     return render_template("sign-in.html", )
 
+
 @app.route('/register', methods = ['POST'])
 def register():
-    email = request.form['inputEmail']
+    email = request.form.get('inputEmail')
     password = request.form['inputPassword']
     name = request.form['inputNome']
     surname = request.form['inputCognome']
     date_of_birth = request.form['inputDate']
 
-    cursor.execute(f"""insert into athletes (email, password_, name_, surname, date_of_birth) values ('{email}', '{password}',
-                '{name}','{surname}','{date_of_birth}')""")
+    sql = "select email from athletes where email = '%s'" % (email)
+    cursor.execute(sql)
+    emailCheck = cursor.fetchone()
     
-    # capire cosa serve
-    cursor.connection.commit()
+    if emailCheck == None:
 
-    session["id_loggeduser"] = cursor.lastrowid
+        cursor.execute(f"""insert into athletes (email, password_, name_, surname, date_of_birth) values ('{email}', '{password}',
+                    '{name}','{surname}','{date_of_birth}')""")
+        
+        # capire cosa serve
+        cursor.connection.commit()
 
-    return redirect ("/account")
+        session["id_loggeduser"] = cursor.lastrowid
 
-    #return render_template("buttare.html", datiHtmlNome = name, datiHtmlCognome = surname, datiHtmlEmail = email, datiHtmlPassword = password)
-
+        return redirect ("/account")
+    
+    else:
+        return jsonify ("Errore")
+	    
 @app.route('/api/register', methods = ['POST'])
 def registerAndroid():
 
