@@ -1,6 +1,6 @@
 from athletesInfoFull import Athletes
-# from trainingCardsAndroid import TrainingCardsAndroid
 from trainingCardsWeb import TrainingCardsWeb
+from trainingCardsAndroid import TrainingCardsAndroid
 from cardsComposition import CardsComposition
 from flask import Flask, request, render_template, redirect, url_for, session, jsonify
 from flask_session import Session
@@ -53,19 +53,17 @@ def login():
     
     except:
         # notifica di errore
-        print ("Account non trovato")
-    return json.dumps(atleta, default=vars)
+        return json.dumps(atleta, default=vars)
 
 
 @app.route('/api/login', methods = ['POST'])
-def showLoginAndroidJson():
+def apiLogin():
     email = request.form.get('inputEmail')
     password = request.form.get('inputPassword')
-
     # email = request.form['inputEmail']
     # password = request.form['inputPassword']
     atleta = None
-
+    
     try:
         sql = "select * from athletes where email = '%s' AND password_ = '%s'" % (email,password)
         cursor.execute(sql)
@@ -79,7 +77,7 @@ def showLoginAndroidJson():
     
     except:
 
-        return json.dumps(atleta, default=vars)
+        return json(atleta), 203
         # return json.dumps(STRINGA ERRORE), 203
 
 
@@ -87,7 +85,6 @@ def showLoginAndroidJson():
 @app.route('/register', methods = ['GET'])
 def getRegister():
     return render_template("sign-in.html", )
-
 
 @app.route('/register', methods = ['POST'])
 def register():
@@ -115,9 +112,12 @@ def register():
     
     else:
         return jsonify ("Errore")
-	    
+    
+    #return render_template("buttare.html", datiHtmlNome = name, datiHtmlCognome = surname, datiHtmlEmail = email, datiHtmlPassword = password)
+    
+
 @app.route('/api/register', methods = ['POST'])
-def registerAndroid():
+def apiRegister():
 
     email = request.form.get('inputEmail')
     password = request.form.get('inputPassword')
@@ -142,7 +142,6 @@ def registerAndroid():
 
         atleta = Athletes (row[0],row[1],row[2],row[3],row[4],row[5])   
         
-        # capire cosa serve
         # cursor.connection.commit()
 
         return json.dumps(atleta, default=vars)
@@ -154,7 +153,7 @@ def registerAndroid():
 
 
 @app.route("/account")
-def dettaglio():
+def getAccount():
     id = session["id_loggeduser"]
 
     sql = (f"select * from athletes where athletes_id = {id}")
@@ -162,8 +161,6 @@ def dettaglio():
     row = cursor.fetchone()
     
     atleta = Athletes (row[0],row[1],row[2],row[3],row[4],row[5])
-
-    # Password non si vede perchè manca nel html
 
     return render_template("my_account.html", athlete = atleta)
 
@@ -285,29 +282,25 @@ def showCardAndroidJson():
 def showExercisesAndroidJson():
     # serve id scheda
 
-    # id = session["id_loggeduser"]
     # id = 1
 
-    sql = """select trainingCards.trainingCards_id, trainingCards.name_table, trainingCards.date_, exercises.exercise_name,
-        cardsComposition.series, cardsComposition.reps, cardsComposition.loads,cardsComposition.rest,
-        cardsComposition.duration, trainingCards.comment_
-        from trainingCards
-        left join athletes on trainingcards.athletes_fk = athletes.athletes_id
-        inner join cardsComposition on trainingCards.trainingCards_id = cardsComposition.trainingCards_fk
-        inner join exercises on cardsComposition.exercises_fk = exercises.exercises_id
-        where trainingCards.trainingCards_id = '%s'""" % (id)
+    sql = """select trainingCards.trainingCards_id, exercises.exercise_name, trainingCards.date_, cardsComposition.series, cardsComposition.reps, cardsComposition.loads,
+            cardsComposition.rest, cardsComposition.duration, trainingCards.comment_
+            from exercises
+	        inner join cardsComposition on cardsComposition.exercises_fk = exercises.exercises_id
+	        inner join trainingCards on cardsComposition.trainingCards_fk  = trainingCards.trainingCards_id
+            where trainingCards.trainingCards_id = '%s'""" % (id)
     
     cursor.execute(sql)
-    cards = cursor.fetchall()
+    elementi = cursor.fetchall()
 
-    schede=[]
+    righe=[]
 
-    for c in cards:
-        scheda = TrainingCardsWeb (c[0],c[1],c[2],c[3],c[4],c[5],c[6],c[7],c[8],c[9])
-        schede.append(scheda)
+    for c in elementi:
+        riga = CardsComposition (c[0],c[1],c[2],c[3],c[4],c[5],c[6],c[7],c[8])
+        righe.append(riga)
 
-    # return {schede}
-    return json.dumps(schede, default=vars)
+    return json.dumps(righe, default=vars)
     
 
 
