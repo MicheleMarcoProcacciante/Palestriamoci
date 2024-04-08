@@ -168,7 +168,7 @@ insert into cardsComposition
     (trainingCards_fk, exercises_fk, series, reps, loads, rest, duration)
 values
     (1 , 1 , 2 , 30 , 60 , 1 , 3),
-    (1 , 2 , 5 , 42 , 95 , 3 , null ),
+    (1 , 2 , 5 , 42 , 95 , 3 , 0),
     (1, 3, 8 , 50 , 300 , 7 , 8 ),
     (2, 2, 4 , 10 , 50 , 3 , 5 ),
     (3, 3, 1 , 5 , 30 , 20 , 3 ),
