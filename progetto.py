@@ -263,12 +263,11 @@ def showCardJson():
     # return render_template("my_account.html", datiSchede = schede, nSchede = numeroschede)
 
 
-@app.route('/api/{id}/showcards', methods=['POST'])
-def showCardAndroidJson():
-    id = request.form.get('inputId')
+@app.route('/api/<id>/showcards', methods=['GET'])
+def showCardAndroidJson(id):
+    #id = request.form.get('inputId')
     # id = session["id_loggeduser"]
     # id = 1
-
     sql = """select trainingCards.trainingCards_id, trainingCards.name_table, trainingCards.date_
         from trainingCards
         left join athletes on trainingcards.athletes_fk = athletes.athletes_id
@@ -289,8 +288,8 @@ def showCardAndroidJson():
     return json.dumps(schede, default=vars)
 
 
-@app.route('/api/showexercises', methods=['POST'])
-def showExercisesAndroidJson():
+@app.route('/api/<id>/showexercises', methods=['GET'])
+def showExercisesAndroidJson(id):
     # serve id scheda
 
     # id = 1
@@ -314,13 +313,18 @@ def showExercisesAndroidJson():
     return json.dumps(righe, default=vars)
 
 
-@app.route('/api/createcard', methods=['POST'])
-def createCard():
+@app.route('/api/<id>/createcard', methods=['GET'])
+def createCard(id):
 
     athlete_id = request.form.get('inputAthleteId')
     trainingcard_id = request.form.get('inputTrainingCardId')
     name_table = request.form.get('inputNameTable')
     date = request.form.get('inputDate')
+
+    cursor.execute()
+
+    
+
     comment = request.form.get('inputComment')
 
     exercise_name = request.form.get('inputExercise')
@@ -343,7 +347,7 @@ def createCard():
     cursor.execute(f"""insert into triningCards (athletes_fk, name_table, date_, comment_)
                     values ('{athlete_id}','{name_table}','{date}','{comment}');
                     insert into cardsComposition (trainingCards_fk, exercises_fk, series, reps, loads, rest, duration)
-                    values ({trainingcard_id}, '{exercise_id}', '{series}','{reps}','{loads}','{rest}','{duration}')""")
+                    values ('{trainingcard_id}', '{exercise_id}', '{series}','{reps}','{loads}','{rest}','{duration}')""")
         
 
     # righe=[]
