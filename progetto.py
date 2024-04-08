@@ -1,5 +1,5 @@
 from athletesInfoFull import Athletes
-from athletesAPI import AthletesApi
+# from athletesAPI import AthletesApi
 from trainingCardsWeb import TrainingCardsWeb
 from trainingCardsAndroid import TrainingCardsAndroid
 from cardsComposition import CardsComposition
@@ -19,7 +19,7 @@ cursor = connection.cursor()
 
 
 
-@app.route('/')
+@app.route('/index')
 def getIndex():
     return render_template("index.html", )
 
