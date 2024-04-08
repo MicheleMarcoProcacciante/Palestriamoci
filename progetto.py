@@ -1,4 +1,5 @@
 from athletesInfoFull import Athletes
+from athletesAPI import AthletesApi
 from trainingCardsWeb import TrainingCardsWeb
 from trainingCardsAndroid import TrainingCardsAndroid
 from cardsComposition import CardsComposition
@@ -18,7 +19,7 @@ cursor = connection.cursor()
 
 
 
-@app.route('/index')
+@app.route('/')
 def getIndex():
     return render_template("index.html", )
 
@@ -63,7 +64,7 @@ def apiLogin():
     # email = request.form['inputEmail']
     # password = request.form['inputPassword']
     atleta = None
-    
+
     try:
         sql = "select * from athletes where email = '%s' AND password_ = '%s'" % (email,password)
         cursor.execute(sql)
@@ -72,12 +73,13 @@ def apiLogin():
         atleta = Athletes (row[0],row[1],row[2],row[3],row[4],row[5])        
 
         # session["id_loggeduser"] = atleta.id
-
+        jsonret = json.dumps(atleta, default=vars)
+        print(jsonret)
         return json.dumps(atleta, default=vars)
     
     except:
 
-        return json(atleta), 203
+        return json(atleta, default = vars), 203
         # return json.dumps(STRINGA ERRORE), 203
 
 
@@ -108,7 +110,7 @@ def register():
 
         session["id_loggeduser"] = cursor.lastrowid
 
-        return redirect ("/account")
+        return redirect ("/showcards")
     
     else:
         return jsonify ("Errore")
@@ -124,6 +126,8 @@ def apiRegister():
     name = request.form.get('inputNome')
     surname = request.form.get('inputCognome')
     date_of_birth = request.form.get('inputDate')
+    
+    # date_of_birth = str (date_of_birth)
 
     sql = "select email from athletes where email = '%s'" % (email)
     cursor.execute(sql)
@@ -140,11 +144,17 @@ def apiRegister():
         cursor.execute(sql)
         row = cursor.fetchone()
 
+        # date_of_birth = str (date_of_birth)
+
         atleta = Athletes (row[0],row[1],row[2],row[3],row[4],row[5])   
         
+        # atleta.date_of_birth = str (atleta.date_of_birth)
+
         # cursor.connection.commit()
 
-        return json.dumps(atleta, default=vars)
+        jsonret = json.dumps(atleta, default=vars)
+        print(jsonret)
+        return jsonret
     
     else:
 
@@ -241,21 +251,22 @@ def showCardJson():
 
     schede=[]
 
-    numeroschede = 0
+    # numeroschede = 0
 
     for c in cards:
         scheda = TrainingCardsWeb (c[0],c[1],c[2],c[3],c[4],c[5],c[6],c[7],c[8],c[9])
         schede.append(scheda)
-        numeroschede = numeroschede + 1
+        # numeroschede = numeroschede + 1
 
     # return {schede}
     return json.dumps(schede, default=vars)
     # return render_template("my_account.html", datiSchede = schede, nSchede = numeroschede)
 
 
-@app.route('/api/showcards')
+@app.route('/api/{id}/showcards', methods=['POST'])
 def showCardAndroidJson():
-    id = session["id_loggeduser"]
+    id = request.form.get('inputId')
+    # id = session["id_loggeduser"]
     # id = 1
 
     sql = """select trainingCards.trainingCards_id, trainingCards.name_table, trainingCards.date_
@@ -278,7 +289,7 @@ def showCardAndroidJson():
     return json.dumps(schede, default=vars)
 
 
-@app.route('/api/showexercises')
+@app.route('/api/showexercises', methods=['POST'])
 def showExercisesAndroidJson():
     # serve id scheda
 
@@ -301,6 +312,47 @@ def showExercisesAndroidJson():
         righe.append(riga)
 
     return json.dumps(righe, default=vars)
+
+
+@app.route('/api/createcard', methods=['POST'])
+def createCard():
+
+    athlete_id = request.form.get('inputAthleteId')
+    trainingcard_id = request.form.get('inputTrainingCardId')
+    name_table = request.form.get('inputNameTable')
+    date = request.form.get('inputDate')
+    comment = request.form.get('inputComment')
+
+    exercise_name = request.form.get('inputExercise')
+
+    sql = "select exercises_id from exercises where exercise_name = '%s'" % (exercise_name)
+    cursor.execute(sql)
+    exercise_id = cursor.fetchone()
+
+    series = request.form.get('inputSeries')
+    reps = request.form.get('inputReps')
+    loads = request.form.get('inputLoads')
+    rest = request.form.get('inputRest')
+    duration = request.form.get('inputDuration')
+    
+
+    # serve id scheda
+
+    # id = 1
+
+    cursor.execute(f"""insert into triningCards (athletes_fk, name_table, date_, comment_)
+                    values ('{athlete_id}','{name_table}','{date}','{comment}');
+                    insert into cardsComposition (trainingCards_fk, exercises_fk, series, reps, loads, rest, duration)
+                    values ({trainingcard_id}, '{exercise_id}', '{series}','{reps}','{loads}','{rest}','{duration}')""")
+        
+
+    # righe=[]
+
+    # for c in elementi:
+    #     riga = CardsComposition (c[0],c[1],c[2],c[3],c[4],c[5],c[6],c[7],c[8])
+    #     righe.append(riga)
+
+    return jsonify ("Successo")
     
 
 
