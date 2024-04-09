@@ -13,7 +13,7 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
-connection = pymysql.connect(host="localhost", user="root", password="root", database="palestriamocidb", port=3306, autocommit=True)
+connection = pymysql.connect(host="localhost", user="root", password="NUOVAPASSWORD", database="palestriamocidb", port=3306, autocommit=True)
 
 cursor = connection.cursor()
 
@@ -26,9 +26,15 @@ def getIndex():
 
 
 # endpoint
+@app.route('/logout', methods = ['GET'])
+def getLogout():
+    session["id_loggeduser"] = None
+    return redirect("/index")
+
 @app.route('/login', methods = ['GET'])
 def getLogin():
     return render_template("log-in.html", loginError = False)
+
 
 @app.route('/login', methods = ['POST'])
 def login():
@@ -139,6 +145,9 @@ def apiRegister():
 
 @app.route("/account")
 def getAccount():
+    if session["id_loggeduser"] == None:
+        return redirect("/login")
+    
     id = session["id_loggeduser"]
 
     sql = (f"select * from athletes where athletes_id = {id}")
@@ -203,6 +212,9 @@ def update():
 
 @app.route('/showcards')
 def showCard():
+    if session["id_loggeduser"] == None:
+        return redirect("/login")
+
     return render_template("schede.html")
 
 

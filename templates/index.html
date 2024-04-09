@@ -35,6 +35,9 @@
             </div>
         </header>
 
+        {% if session["id_loggeduser"] != None: %}
+        Utente loggato da visualizzare link per vedere le schede e pagina account
+        {% endif %}
         <main class="main">
             <section class="main__block block-main">
                 <div class="block-main__container">

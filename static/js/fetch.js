@@ -1,4 +1,4 @@
-fetch('http://192.168.0.124:5000/showcardsJson')
+fetch('http://192.168.0.127:5000/showcardsJson')
     .then(response => response.json())
     .then(data => {
         console.log(data);
