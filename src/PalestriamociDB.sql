@@ -72,7 +72,7 @@ values
     ("vittorio.longo@gmail.com", "12345678", "Vittorio", "Longo", "19930920"),
     ("samuele.filincieri@gmail.com", "12345678", "Samuele", "Filinceri", "20040917"),
     ("mykola.kartsev@gmail.com", "12345678", "Mykola", "Kartsev", "19890707"),
-    ("francesco.pirollo@gmail.com", "1234678", "Francesco", "Pirollo", "20240409");
+    ("francesco.pirollo@gmail.com", "12345678", "Francesco", "Pirollo", "20240409");
 
 
 insert into trainingCards
@@ -201,14 +201,48 @@ values
     (5, 16, 10 , 20 , 90 , 4 , 8 ),
     (6, 17, 5, 10 , 60  , 2 , 3 ),
     (6, 18, 10 , 20 , 90 , 4 , 8 ),
-    (6, 19, 5, 10 , 60  , 2 , 3 );
+    (6, 19, 5, 10 , 60  , 2 , 3 ),
+    (7 , 1 , 5 , 10 , 60 , 2 , 3),
+    (7 , 2 , 10 , 20 , 90 , 4 , 8),
+    (7, 3, 5 , 10 , 60 , 2, 3 ),
+    (8, 4, 10 , 20 , 90 , 4 , 8 ),
+    (8, 5, 5 , 10 , 60  , 2 , 3 ),
+    (8, 6, 10 , 20 , 90 , 4 , 8 ),
+    (9, 7, 5 , 10 , 60  , 2 , 3 ),
+    (9, 8, 10 , 20 , 90 , 4 , 8 ),
+    (9, 9, 5 , 10 , 60  , 2 , 3 ),
+    (10, 10, 10 , 20 , 90 , 4 , 8 ),
+    (10, 11, 5, 10 , 60  , 2 , 3 ),
+    (10, 12, 10 , 20 , 90 , 4 , 8 ),
+    (11, 13, 5 , 10 , 60  , 2 , 3 ),
+    (11, 14, 10 , 20 , 90 , 4 , 8 ),
+    (11, 15, 5, 10 , 60  , 2 , 3),
+    (12, 16, 10 , 20 , 90 , 4 , 8 ),
+    (12, 17, 5, 10 , 60  , 2 , 3 ),
+    (12, 18, 10 , 20 , 90 , 4 , 8 ),
+    (13, 19, 5, 10 , 60  , 2 , 3 ),
+	(14, 1 , 5 , 10 , 60 , 2 , 3),
+    (14, 2 , 10 , 20 , 90 , 4 , 8),
+    (14, 3, 5 , 10 , 60 , 2, 3 ),
+    (15, 4, 10 , 20 , 90 , 4 , 8 ),
+    (15, 5, 5 , 10 , 60  , 2 , 3 ),
+    (15, 6, 10 , 20 , 90 , 4 , 8 ),
+    (16, 7, 5 , 10 , 60  , 2 , 3 ),
+    (16, 8, 10 , 20 , 90 , 4 , 8 ),
+    (16, 9, 5 , 10 , 60  , 2 , 3 ),
+    (17, 10, 10 , 20 , 90 , 4 , 8 ),
+    (17, 11, 5, 10 , 60  , 2 , 3 ),
+    (17, 12, 10 , 20 , 90 , 4 , 8 ),
+    (18, 13, 5 , 10 , 60  , 2 , 3 ),
+    (18, 14, 10 , 20 , 90 , 4 , 8 ),
+    (18, 15, 5, 10 , 60  , 2 , 3);
 
 /*query per ottenere tutte le cards di un singolo utente
 (endpoint allenamenti svolti)*/
 
 select name_table, date_
 from trainingCards
-where athletes_fk = 2;
+where athletes_fk = 5;
 
 
 /*query per trovare la data di una scheda e tutti gli esercizi fatti, dato l'id di una singola scheda
@@ -230,7 +264,7 @@ from trainingCards
     left join athletes on trainingcards.athletes_fk = athletes.athletes_id
     inner join cardsComposition on trainingCards.trainingCards_id = cardsComposition.trainingCards_fk
     inner join exercises on cardsComposition.exercises_fk = exercises.exercises_id
-where athletes.athletes_id = 1;
+where athletes.athletes_id = 4;
 
 
 /*query per controllare se l'email di registrazione è già esistente
@@ -240,9 +274,7 @@ select email
 from athletes;
 /*select email , password_ from athletes; */
 
-update athletes
-set email = "value1@abc.it", password_ = "value2", name_ = "value3", surname = "value4", date_of_birth = 20221010
-where athletes_id = 3;
+
 
 select *
 from athletes;
