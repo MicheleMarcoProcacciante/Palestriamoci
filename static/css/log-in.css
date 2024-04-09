@@ -38,13 +38,20 @@
           justify-content: space-between;
 }
 .log-in .logo {
-  width: 100 px;
+  width: 44px;
+}
+.log-in .logo-schede {
+  width: 100px;
 }
 .log-in .menu__logo {
   margin-right: 0;
 }
 .log-in .header {
   width: 100%;
+  padding: 20px 0;
+}
+.log-in .header_schede {
+  padding: 0px;
 }
 .log-in .footer {
   width: 100%;
