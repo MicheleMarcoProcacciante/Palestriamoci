@@ -18,7 +18,7 @@
 
 
     .logo {
-        width: 44px;
+        width: 100 px;
     }
 
     .menu__logo {
@@ -27,7 +27,7 @@
 
     .header {
         width: 100%;
-        padding: 20px 0;
+        // padding: 20px 0;
     }
 
     .footer {
@@ -205,23 +205,36 @@ ul {
     position: relative;
 }
 
-#btn_accedi {
+.passWithError {
+    padding: 15px;
+    background-color: #ff25256d;
+    width: 90%;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--bs-body-color);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-clip: padding-box;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 
-    // .btn {
-    //     width: 100%;
-    // }
+    p {
+        margin-bottom: 0;
+    }
 }
 
-.col-account .col-8 {
-
-    // @media (max-width: 550px) {
-    //     width: 50%;
-
-    //     .col-8 {
-    //         width: 100%;
-    //     }
-    // }
+.passWithError_register {
+    margin: 20px 0;
+}
 
 
+.container,
+.container-sm {
+    @media (min-width: 200px) {
+        max-width: 540px;
+    }
 
 }

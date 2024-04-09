@@ -38,14 +38,13 @@
           justify-content: space-between;
 }
 .log-in .logo {
-  width: 44px;
+  width: 100 px;
 }
 .log-in .menu__logo {
   margin-right: 0;
 }
 .log-in .header {
   width: 100%;
-  padding: 20px 0;
 }
 .log-in .footer {
   width: 100%;
@@ -208,4 +207,38 @@ ul {
 .col-8 {
   width: 100%;
   position: relative;
+}
+
+.passWithError {
+  padding: 15px;
+  background-color: rgba(255, 37, 37, 0.4274509804);
+  width: 90%;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--bs-body-color);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-clip: padding-box;
+  border: var(--bs-border-width) solid var(--bs-border-color);
+  border-radius: var(--bs-border-radius);
+  -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+.passWithError p {
+  margin-bottom: 0;
+}
+
+.passWithError_register {
+  margin: 20px 0;
+}
+
+@media (min-width: 200px) {
+  .container,
+  .container-sm {
+    max-width: 540px;
+  }
 }
