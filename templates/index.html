@@ -29,15 +29,18 @@
                         <li class="menu__item"><a class="link" href="#dreamTeam">Chi siamo</a></li>
                     </ul>
                     <div class="menu__burger">
+                        {% if session["id_loggeduser"] != None: %}
+                        <a href="showcards"><img src="../static/img/ico/login.png" alt="menu"></a>
+                        {% else %}
                         <a href="login"><img src="../static/img/ico/login.png" alt="menu"></a>
+                        {% endif %}
+
                     </div>
                 </menu>
             </div>
         </header>
 
-        {% if session["id_loggeduser"] != None: %}
-        Utente loggato da visualizzare link per vedere le schede e pagina account
-        {% endif %}
+
         <main class="main">
             <section class="main__block block-main">
                 <div class="block-main__container">
