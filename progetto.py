@@ -1,8 +1,8 @@
 from athletesInfoFull import Athletes
-# from athletesAPI import AthletesApi
 from trainingCardsWeb import TrainingCardsWeb
 from trainingCardsAndroid import TrainingCardsAndroid
 from cardsComposition import CardsComposition
+from listaEsercizi import ListaEsercizi
 from flask import Flask, request, render_template, redirect, url_for, session, jsonify
 from flask_session import Session
 import pymysql
@@ -13,7 +13,7 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
-connection = pymysql.connect(host="localhost", user="root", password="root", database="palestriamocidb", port=3306, autocommit=True)
+connection = pymysql.connect(host="localhost", user="root", password="NUOVAPASSWORD", database="palestriamocidb", port=3306, autocommit=True)
 
 cursor = connection.cursor()
 
@@ -303,13 +303,12 @@ def showExercisesAndroidJson(id):
 @app.route('/api/<id>/createcard', methods=['GET'])
 def createCard(id):
 
-    athlete_id = request.form.get('inputAthleteId')
+    # athlete_id = request.form.get('inputAthleteId')
     trainingcard_id = request.form.get('inputTrainingCardId')
     name_table = request.form.get('inputNameTable')
     date = request.form.get('inputDate')
 
     cursor.execute()
-
     
 
     comment = request.form.get('inputComment')
@@ -331,8 +330,11 @@ def createCard(id):
 
     # id = 1
 
-    cursor.execute(f"""insert into triningCards (athletes_fk, name_table, date_, comment_)
-                    values ('{athlete_id}','{name_table}','{date}','{comment}');
+
+    trainingcard_id = cursor.lastrowid
+
+    cursor.execute(f"""insert into trainingCards (athletes_fk, name_table, date_, comment_)
+                    values ('{id}','{name_table}','{date}','{comment}');
                     insert into cardsComposition (trainingCards_fk, exercises_fk, series, reps, loads, rest, duration)
                     values ('{trainingcard_id}', '{exercise_id}', '{series}','{reps}','{loads}','{rest}','{duration}')""")
         
@@ -344,6 +346,24 @@ def createCard(id):
     #     righe.append(riga)
 
     return jsonify ("Successo")
+
+
+@app.route('/api/showexerciselist', methods = ['GET'])
+def showExerciseList():
+
+    sql = """select * from exercises"""
+    
+    cursor.execute(sql)
+    elementi = cursor.fetchall()
+
+    righe=[]
+
+    for c in elementi:
+        riga = ListaEsercizi (c[0],c[1],c[2])
+        righe.append(riga)
+
+    return json.dumps(righe, default=vars)
+    
     
 
 
