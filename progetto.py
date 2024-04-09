@@ -28,7 +28,7 @@ def getIndex():
 # endpoint
 @app.route('/login', methods = ['GET'])
 def getLogin():
-    return render_template("log-in.html")
+    return render_template("log-in.html", loginError = False)
 
 @app.route('/login', methods = ['POST'])
 def login():
@@ -44,44 +44,21 @@ def login():
         cursor.execute(sql)
         row = cursor.fetchone()
 
-        atleta = Athletes (row[0],row[1],row[2],row[3],row[4],row[5])        
+        if row != None:
+            atleta = Athletes (row[0],row[1],row[2],row[3],row[4],row[5])        
 
-        # print(atleta.date_of_birth)
+            # print(atleta.date_of_birth)
 
-        session["id_loggeduser"] = atleta.id
+            session["id_loggeduser"] = atleta.id
 
-        return redirect ("/showcards")
+            return redirect ("/showcards")
+        else:
+            return render_template("log-in.html", loginError = True)
     
     except:
         # notifica di errore
-        return json.dumps(atleta, default=vars)
-
-
-@app.route('/api/login', methods = ['POST'])
-def apiLogin():
-    email = request.form.get('inputEmail')
-    password = request.form.get('inputPassword')
-    # email = request.form['inputEmail']
-    # password = request.form['inputPassword']
-    atleta = None
-
-    try:
-        sql = "select * from athletes where email = '%s' AND password_ = '%s'" % (email,password)
-        cursor.execute(sql)
-        row = cursor.fetchone()
-
-        atleta = Athletes (row[0],row[1],row[2],row[3],row[4],row[5])        
-
-        # session["id_loggeduser"] = atleta.id
-        jsonret = json.dumps(atleta, default=vars)
-        print(jsonret)
-        return json.dumps(atleta, default=vars)
-    
-    except:
-
-        return json(atleta, default = vars), 203
-        # return json.dumps(STRINGA ERRORE), 203
-
+        # return json.dumps(atleta, default=vars)
+        return redirect ('/login')
 
 
 @app.route('/register', methods = ['GET'])

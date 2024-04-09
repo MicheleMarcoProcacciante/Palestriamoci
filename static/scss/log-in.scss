@@ -205,23 +205,24 @@ ul {
     position: relative;
 }
 
-#btn_accedi {
-
-    // .btn {
-    //     width: 100%;
-    // }
-}
-
-.col-account .col-8 {
-
-    // @media (max-width: 550px) {
-    //     width: 50%;
-
-    //     .col-8 {
-    //         width: 100%;
-    //     }
-    // }
-
+.passWithError {
+    padding: 15px;
+    background-color: #ff25256d;
+    width: 90%;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--bs-body-color);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-clip: padding-box;
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 
 
+    p {
+        margin-bottom: 0;
+    }
 }
