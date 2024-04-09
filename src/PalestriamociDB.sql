@@ -67,20 +67,36 @@ duration int not null
 insert into athletes
     (email, password_, name_, surname, date_of_birth)
 values
-    ("ciao@ciao.it", "12345678", "nome1", "cognome1", "20230422"),
-    ("ciao1@ciao.it", "87654321", "nome2", "cognome2", "20230423"),
-    ("ciao2@ciao.it", "12345678", "nome3", "cognome3", "20230424");
+    ("riccardo.falchetto@gmail.com", "12345678", "Riccardo", "Falchetto", "19950511"),
+    ("mihele.procacciante@gmail.com", "12345678", "Michele" , "Procacciante", "20040501"),
+    ("vittorio.longo@gmail.com", "12345678", "Vittorio", "Longo", "19930920"),
+    ("samuele.filincieri@gmail.com", "12345678", "Samuele", "Filinceri", "20040917"),
+    ("mykola.kartsev@gmail.com", "12345678", "Mykola", "Kartsev", "19890707"),
+    ("francesco.pirollo@gmail.com", "1234678", "Francesco", "Pirollo", "20240409");
 
 
 insert into trainingCards
     (athletes_fk, name_table, date_,comment_)
 values
-    (1, "nomesc Aldo", "20230405", "brutto commento"),
-    (1, "sc Giovanni", "20240403", "bel commento"),
-    (1, "sc Giacomo", "20220422", "mi sono annoiato"),
-    (2, "Bracco", "20231022", "mi sono divertito"),
-    (2, "Baldo", "20230720", "commento"),
-    (3, "Geppetto", "20230412", "no comment");
+    (1, "scheda riccardo", 20240409, "commento..."),
+    (1, "falchetto sheda", 20240409, "commento..."),
+    (1, "sc riccardofalchetto", 20240409, "commento..."),
+    (2, "scheda michele", 20240409, "commento..."),
+    (2, "procacciante scheda", 20240409, "commento..."),
+    (2, "sc micheleprocacciante", 20240409, "commento..."),
+    (3, "scheda vittorio", 20240409, "commento..."),
+    (3, "longo scheda", 20240409, "commento..."),
+    (3, "sc vittoriolono", 20240409, "commento..."),
+    (4, "scheda samuele", 20240409, "commento..."),
+    (4, "filincieri scheda", 20240409, "commento..."),
+    (4, "sc samuelefilincieri", 20240409, "commento..."),
+    (5, "scheda mykola", 20240409, "commento..."),
+    (5, "kartsev scheda", 20240409, "commento..."),
+    (5, "sc mykolakartsev", 20240409, "commento..."),
+    (6, "scheda francesco", 20240409, "commento..."),
+    (6, "pirollo scheda", 20240409, "commento..."),
+    (6, "sc francescopirollo", 20240409, "commento...");
+
 
 insert into exercises
     (exercise_name, isAerobic)
@@ -167,13 +183,25 @@ values
 insert into cardsComposition
     (trainingCards_fk, exercises_fk, series, reps, loads, rest, duration)
 values
-    (1 , 1 , 2 , 30 , 60 , 1 , 3),
-    (1 , 2 , 5 , 42 , 95 , 3 , 0),
-    (1, 3, 8 , 50 , 300 , 7 , 8 ),
-    (2, 2, 4 , 10 , 50 , 3 , 5 ),
-    (3, 3, 1 , 5 , 30 , 20 , 3 ),
-    (4, 2, 10 , 100 , 5 , 3 , 5 ),
-    (5, 5, 23 , 10 , 30 , 20 , 3 );
+    (1 , 1 , 5 , 10 , 60 , 2 , 3),
+    (1 , 2 , 10 , 20 , 90 , 4 , 8),
+    (1, 3, 5 , 10 , 60 , 2, 3 ),
+    (2, 4, 10 , 20 , 90 , 4 , 8 ),
+    (2, 5, 5 , 10 , 60  , 2 , 3 ),
+    (2, 6, 10 , 20 , 90 , 4 , 8 ),
+    (3, 7, 5 , 10 , 60  , 2 , 3 ),
+    (3, 8, 10 , 20 , 90 , 4 , 8 ),
+    (3, 9, 5 , 10 , 60  , 2 , 3 ),
+    (4, 10, 10 , 20 , 90 , 4 , 8 ),
+    (4, 11, 5, 10 , 60  , 2 , 3 ),
+    (4, 12, 10 , 20 , 90 , 4 , 8 ),
+    (4, 13, 5 , 10 , 60  , 2 , 3 ),
+    (5, 14, 10 , 20 , 90 , 4 , 8 ),
+    (5, 15, 5, 10 , 60  , 2 , 3),
+    (5, 16, 10 , 20 , 90 , 4 , 8 ),
+    (6, 17, 5, 10 , 60  , 2 , 3 ),
+    (6, 18, 10 , 20 , 90 , 4 , 8 ),
+    (6, 19, 5, 10 , 60  , 2 , 3 );
 
 /*query per ottenere tutte le cards di un singolo utente
 (endpoint allenamenti svolti)*/
