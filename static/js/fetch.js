@@ -181,7 +181,7 @@ class Workout {
             elModalBody.append(tableExercises)
 
             const elModalCommento = document.createElement("div")
-            elModalCommento.classList = "commento container"
+            elModalCommento.classList = "commento"
             const titleCommento = document.createElement("h2")
             titleCommento.innerText = "Commento"
             elModalCommento.append(titleCommento)
