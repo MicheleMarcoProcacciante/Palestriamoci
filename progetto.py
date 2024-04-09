@@ -13,7 +13,7 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
-connection = pymysql.connect(host="localhost", user="root", password="NUOVAPASSWORD", database="palestriamocidb", port=3306, autocommit=True)
+connection = pymysql.connect(host="localhost", user="root", password="root", database="palestriamocidb", port=3306, autocommit=True)
 
 cursor = connection.cursor()
 
