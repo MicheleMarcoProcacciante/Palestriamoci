@@ -246,3 +246,58 @@ ul {
     }
 
 }
+
+
+.mainmenubtn {
+    // background-color: red;
+    // color: white;
+    border: none;
+    cursor: pointer;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+// ========================= dropdown menu
+.mainmenubtn:hover {
+    // background-color: red;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    transition-duration: 1s;
+}
+
+.dropdown-child {
+    display: none;
+    min-width: 200px;
+    gap: 10px;
+}
+
+.dropdown-child a {
+    color: #4F95DA;
+    padding: 20px;
+    text-decoration: none;
+    display: block;
+    z-index: 5;
+    transition: 0.4s ease;
+}
+
+.dropdown-child a:hover {
+    color: #FFF3F4;
+    background-color: #FF2625;
+}
+
+.dropdown-child_acc a:hover {
+    color: #FF2625;
+    background-color: #FFF3F4;
+}
+
+
+.dropdown:hover .dropdown-child {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    transform: translate(-60%);
+    z-index: 10;
+}
