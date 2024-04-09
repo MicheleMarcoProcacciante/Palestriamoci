@@ -38,14 +38,13 @@
           justify-content: space-between;
 }
 .log-in .logo {
-  width: 44px;
+  width: 100 px;
 }
 .log-in .menu__logo {
   margin-right: 0;
 }
 .log-in .header {
   width: 100%;
-  padding: 20px 0;
 }
 .log-in .footer {
   width: 100%;
@@ -231,4 +230,15 @@ ul {
 }
 .passWithError p {
   margin-bottom: 0;
+}
+
+.passWithError_register {
+  margin: 20px 0;
+}
+
+@media (min-width: 200px) {
+  .container,
+  .container-sm {
+    max-width: 540px;
+  }
 }

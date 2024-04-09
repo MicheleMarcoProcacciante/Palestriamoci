@@ -63,7 +63,7 @@ def login():
 
 @app.route('/register', methods = ['GET'])
 def getRegister():
-    return render_template("sign-in.html", )
+    return render_template("sign-in.html", signinError = False)
 
 @app.route('/register', methods = ['POST'])
 def register():
@@ -90,9 +90,7 @@ def register():
         return redirect ("/showcards")
     
     else:
-        return jsonify ("Errore")
-    
-    #return render_template("buttare.html", datiHtmlNome = name, datiHtmlCognome = surname, datiHtmlEmail = email, datiHtmlPassword = password)
+        return render_template("sign-in.html", signinError = True)
     
 
 @app.route('/api/register', methods = ['POST'])

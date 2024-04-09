@@ -23,11 +23,26 @@
     max-width: 450px;
   }
 }
+@media (max-width: 450px) {
+  .carousel {
+    max-width: 350px;
+  }
+}
+@media (max-width: 360px) {
+  .carousel {
+    max-width: 300px;
+  }
+}
 
 .itc-slider {
   position: relative;
   padding: 50px;
   margin-bottom: 50px;
+}
+@media (max-width: 450px) {
+  .itc-slider {
+    padding: 50px 0;
+  }
 }
 
 .itc-slider-wrapper {

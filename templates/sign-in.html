@@ -28,9 +28,6 @@
           <ul class="menu__items">
             <li class="menu__item"><a class="link" href="index">Tornare a casa</a></li>
           </ul>
-          <!-- <div class="menu__burger">
-            <a href="log-in.html"><img src="../static/img/ico/login.png" alt="menu"></a>
-          </div> -->
         </menu>
       </div>
     </header>
@@ -70,6 +67,11 @@
             visibility
           </span>
         </div>
+        {% if signinError == True:%}
+        <div class="passWithError passWithError_register">
+          <p>Utente gia registrato</p>
+        </div>
+        {% endif %}
       </div>
       <div id="link_log-in">
         <span>Hai già un account? </span><a class="link" href="login"><span class="color-red ">Accedi</span></a>

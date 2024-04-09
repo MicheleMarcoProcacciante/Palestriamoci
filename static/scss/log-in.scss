@@ -18,7 +18,7 @@
 
 
     .logo {
-        width: 44px;
+        width: 100 px;
     }
 
     .menu__logo {
@@ -27,7 +27,7 @@
 
     .header {
         width: 100%;
-        padding: 20px 0;
+        // padding: 20px 0;
     }
 
     .footer {
@@ -221,8 +221,20 @@ ul {
     border-radius: var(--bs-border-radius);
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 
-
     p {
         margin-bottom: 0;
     }
+}
+
+.passWithError_register {
+    margin: 20px 0;
+}
+
+
+.container,
+.container-sm {
+    @media (min-width: 200px) {
+        max-width: 540px;
+    }
+
 }
