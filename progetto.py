@@ -21,7 +21,7 @@ cursor = connection.cursor()
 
 @app.route('/index')
 def getIndex():
-    return render_template("index.html", )
+    return render_template("index.html",)
 
 
 
@@ -65,6 +65,32 @@ def login():
         # notifica di errore
         # return json.dumps(atleta, default=vars)
         return redirect ('/login')
+    
+
+@app.route('/api/login', methods = ['POST'])
+def apiLogin():
+    email = request.form.get('inputEmail')
+    password = request.form.get('inputPassword')
+    # email = request.form['inputEmail']
+    # password = request.form['inputPassword']
+    atleta = None
+
+    try:
+        sql = "select * from athletes where email = '%s' AND password_ = '%s'" % (email,password)
+        cursor.execute(sql)
+        row = cursor.fetchone()
+
+        atleta = Athletes (row[0],row[1],row[2],row[3],row[4],row[5])        
+
+        # session["id_loggeduser"] = atleta.id
+
+        return json.dumps(atleta, default=vars)
+    
+    except:
+
+        return json(atleta, default = vars), 203
+        # return json.dumps(STRINGA ERRORE), 203
+
 
 
 @app.route('/register', methods = ['GET'])
@@ -77,13 +103,16 @@ def register():
     password = request.form['inputPassword']
     name = request.form['inputNome']
     surname = request.form['inputCognome']
+    print ("step 1")
     date_of_birth = request.form['inputDate']
+
+    print ("step 2")
 
     sql = "select email from athletes where email = '%s'" % (email)
     cursor.execute(sql)
     emailCheck = cursor.fetchone()
     
-    if emailCheck == None:
+    if ((emailCheck == None) and (date_of_birth != '')):
 
         cursor.execute(f"""insert into athletes (email, password_, name_, surname, date_of_birth) values ('{email}', '{password}',
                     '{name}','{surname}','{date_of_birth}')""")
@@ -97,6 +126,7 @@ def register():
     
     else:
         return render_template("sign-in.html", signinError = True)
+    
     
 
 @app.route('/api/register', methods = ['POST'])
@@ -140,6 +170,20 @@ def apiRegister():
     else:
 
         return jsonify ("Errore"), 203
+    
+@app.route('/api/emailcheck', methods = ['GET'])
+def emailCheck():
+
+    email = request.args.get('inputEmail')
+    print (email)
+    sql = "select email from athletes where email = '%s'" % (email)
+    cursor.execute(sql)
+    emailCheck = cursor.fetchone()
+    print (emailCheck)
+    if emailCheck == None:
+        return "True"
+    else:
+        return "False"
 
 
 
